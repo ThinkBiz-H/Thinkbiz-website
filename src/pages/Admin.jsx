@@ -5,7 +5,8 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { ref, push, get, child } from "firebase/database";
+
+import { ref as dbRef, push, get, child, remove } from "firebase/database";
 
 const Admin = () => {
   const [user, setUser] = useState(null);
@@ -17,7 +18,7 @@ const Admin = () => {
     location: "",
   });
 
-  // Listen auth state
+  // Listen to user login state
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -48,9 +49,9 @@ const Admin = () => {
 
   // Fetch jobs from Firebase
   const fetchJobs = async () => {
-    const dbRef = ref(db);
+    const rootRef = dbRef(db);
     try {
-      const snapshot = await get(child(dbRef, "jobs"));
+      const snapshot = await get(child(rootRef, "jobs"));
       if (snapshot.exists()) {
         const data = snapshot.val();
         const jobsArray = Object.entries(data).map(([key, value]) => ({
@@ -66,7 +67,7 @@ const Admin = () => {
     }
   };
 
-  // Add job
+  // Add new job
   const handleJobSubmit = async (e) => {
     e.preventDefault();
     if (!jobForm.title || !jobForm.description || !jobForm.location) {
@@ -74,7 +75,7 @@ const Admin = () => {
       return;
     }
     try {
-      await push(ref(db, "jobs"), jobForm);
+      await push(dbRef(db, "jobs"), jobForm);
       alert("Job added successfully");
       setJobForm({ title: "", description: "", location: "" });
       fetchJobs();
@@ -83,8 +84,19 @@ const Admin = () => {
     }
   };
 
+  // DELETE JOB FUNCTION
+  const deleteJob = async (jobId) => {
+    try {
+      await remove(dbRef(db, "jobs/" + jobId));
+      alert("Job deleted successfully");
+      fetchJobs();
+    } catch (error) {
+      alert("Failed to delete job: " + error.message);
+    }
+  };
+
+  // LOGIN PAGE VIEW
   if (!user) {
-    // Login form
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white p-6">
         <form
@@ -125,7 +137,7 @@ const Admin = () => {
     );
   }
 
-  // Admin panel after login
+  // ADMIN PANEL VIEW
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6 max-w-4xl mx-auto">
       <div className="flex justify-between items-center mb-6">
@@ -180,12 +192,20 @@ const Admin = () => {
       <div>
         <h2 className="text-2xl font-semibold mb-4">Current Job Listings</h2>
         {jobs.length === 0 && <p>No jobs found.</p>}
+
         <ul className="space-y-4">
           {jobs.map(({ id, title, description, location }) => (
             <li key={id} className="bg-gray-800 p-4 rounded">
               <h3 className="text-xl font-bold text-orange-400">{title}</h3>
               <p>{description}</p>
               <p className="italic text-gray-400">Location: {location}</p>
+
+              <button
+                onClick={() => deleteJob(id)}
+                className="mt-3 bg-red-600 px-4 py-2 rounded hover:bg-red-700 transition"
+              >
+                Delete
+              </button>
             </li>
           ))}
         </ul>
