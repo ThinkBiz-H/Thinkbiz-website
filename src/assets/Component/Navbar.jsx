@@ -1,0 +1,169 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
+const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <nav className="bg-white text-black py-0 px-6">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        {/* Logo */}
+        <div className="flex items-center">
+          <Link to="/">
+            <img src="/logo-white.jpeg" alt="logo" className="w-40 h-auto" />
+          </Link>
+        </div>
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex gap-8 font-semibold text-orange-400 relative">
+          <li className="cursor-pointer hover:text-black">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="cursor-pointer hover:text-black">
+            <Link to="/about">About</Link>
+          </li>
+
+          {/* Service Dropdown */}
+          <li className="group cursor-pointer hover:text-black relative">
+            Service
+            <ul
+              className="
+              absolute left-0 top-8 
+              bg-[#ff7515] text-black shadow-lg rounded-lg p-4 
+              w-48 
+              opacity-0 invisible 
+              group-hover:opacity-100 group-hover:visible 
+              transition-all duration-300 z-50
+            "
+            >
+              <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
+                <Link to="/service/web">Web Development</Link>
+              </li>
+              <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
+                <Link to="/service/app">App Development</Link>
+              </li>
+              <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
+                <Link to="/service/digital-marketing">Digital Marketing</Link>
+              </li>
+              <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
+                <Link to="/service/seo">SEO Services</Link>
+              </li>
+              <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
+                <Link to="/service/graphic">Graphic Designing</Link>
+              </li>
+              <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
+                <Link to="/service/software">Software Development</Link>
+              </li>
+            </ul>
+          </li>
+
+          <li className="cursor-pointer hover:text-black">
+            <Link to="/industries">Industries</Link>
+          </li>
+          <li className="cursor-pointer hover:text-black">
+            <Link to="/package">Package</Link>
+          </li>
+          <li className="cursor-pointer hover:text-black">
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
+
+        {/* Desktop Right */}
+        <div className="hidden md:flex items-center gap-6">
+          <h3 className="font-bold">+91-8512001218</h3>
+          <Link
+            to="/contact"
+            className="bg-orange-400 text-black px-4 py-2 rounded-xl font-semibold hover:bg-orange-500 transition inline-block text-center"
+          >
+            Free Quote
+          </Link>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button
+          className={`md:hidden text-black text-3xl transition-transform duration-500 ${
+            open ? "rotate-90" : "rotate-0"
+          }`}
+          onClick={() => setOpen(!open)}
+        >
+          {open ? "✕" : "☰"}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-700 ease-in-out
+        ${open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+      >
+        <div className="mt-0 space-y-0 bg-black p-2 rounded-lg border border-gray-700 items-center">
+          <ul className="flex flex-col gap-3 text-orange-400 font-semibold items-center rounded-full min-w-8/12">
+            <li>
+              <Link to="/" onClick={() => setOpen(false)}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" onClick={() => setOpen(false)}>
+                About
+              </Link>
+            </li>
+
+            {/* Mobile Service Dropdown */}
+            <details className="text-center min-w-8/12 rounded-2xl">
+              <summary className="cursor-pointer">Service</summary>
+              <ul className="mt-2 bg-[#ff7515] text-black space-y-1">
+                <li>
+                  <Link to="/service/web">Web Development</Link>
+                </li>
+                <li>
+                  <Link to="/service/app">App Development</Link>
+                </li>
+                <li>
+                  <Link to="/service/digital-marketing">Digital Marketing</Link>
+                </li>
+                <li>
+                  <Link to="/service/seo">SEO Services</Link>
+                </li>
+                <li>
+                  <Link to="/service/graphic">Graphic Designing</Link>
+                </li>
+                <li>
+                  <Link to="/service/software">Software Development</Link>
+                </li>
+              </ul>
+            </details>
+
+            <li>
+              <Link to="/industries" onClick={() => setOpen(false)}>
+                Industries
+              </Link>
+            </li>
+            <li>
+              <Link to="/package" onClick={() => setOpen(false)}>
+                Package
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" onClick={() => setOpen(false)}>
+                Contact
+              </Link>
+            </li>
+          </ul>
+
+          <div className="flex flex-col gap-4 pt-3 items-center">
+            <h3 className="font-bold text-white">+91-8512001218</h3>
+            <Link
+              to="/contact"
+              className="bg-orange-400 text-black px-4 py-2 rounded-xl font-semibold hover:bg-orange-500 transition inline-block text-center"
+              onClick={() => setOpen(false)} // optional: close menu on click
+            >
+              Free Quote
+            </Link>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
