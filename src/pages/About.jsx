@@ -145,7 +145,7 @@ const About = () => {
             {
               name: "Nibha Thakur",
               role: "Chief Technology Officer",
-              img: "/public/mam-image.jpeg",
+              img: "/mam-image.jpeg",
             },
           ].map((member, i) => (
             <div
@@ -181,7 +181,7 @@ const About = () => {
   hover:shadow-[0_25px_80px_rgba(0,0,0,0.2)] transition-all duration-500 hover:-translate-y-3"
         >
           <img
-            src="/public/Group-image.jpeg"
+            src="/Group-image.jpeg"
             className="w-full h-[420px] object-cover rounded-2xl hover:scale-105 transition-all duration-700"
           />
 
