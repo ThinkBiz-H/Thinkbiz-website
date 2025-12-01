@@ -136,10 +136,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/Packageservice/creative"
-                  className="hover:text-orange-500"
-                >
+                <Link to="/service/creative" className="hover:text-orange-500">
                   Creative Writing
                 </Link>
               </li>
