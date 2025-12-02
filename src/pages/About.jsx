@@ -114,7 +114,7 @@ const About = () => {
       {/* ================= OUR TEAM (ULTRA MODERN) ================= */}
       <section className="py-24 px-6 bg-gradient-to-br from-[#fff7f0] via-white to-[#f7f1ff]">
         <div className="max-w-7xl mx-auto text-center mb-20">
-          <h2 className="text-5xl font-extrabold bg-gradient-to-r from-[#ff7515] to-[#b14bff] bg-clip-text text-transparent drop-shadow-lg">
+          <h2 className="text-5xl font-extrabold text-[#FF7515] drop-shadow-lg">
             Our Team
           </h2>
           <p className="text-gray-600 mt-4 text-xl">
@@ -186,7 +186,7 @@ const About = () => {
           />
 
           <div className="text-center mt-6">
-            <h3 className="text-3xl font-bold bg-gradient-to-r from-[#ff7515] to-[#b14bff] bg-clip-text text-transparent">
+            <h3 className="text-3xl font-bold  text-[#FF7515] ">
               Our Amazing Team
             </h3>
             <p className="text-gray-600">Together we build excellence.</p>
@@ -235,7 +235,7 @@ const About = () => {
       </section>
 
       {/* ================= CTA ================= */}
-      <section className="py-24 px-6 bg-[#ff7515] text-white text-center">
+      <section className="py-24 px-6 bg-black text-white text-center">
         <h2 className="text-4xl font-bold mb-4">
           Let’s Build Something Extraordinary
         </h2>

@@ -89,12 +89,12 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-300">
               <li>
                 <Link to="/service/web" className="hover:text-orange-500">
-                  Web Development
+                  Design $ Development
                 </Link>
               </li>
               <li>
                 <Link to="/service/app" className="hover:text-orange-500">
-                  App Development
+                  Android $ Ios App Development
                 </Link>
               </li>
               <li>
@@ -130,11 +130,11 @@ const Footer = () => {
                   Brand Prommotion
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/service/video" className="hover:text-orange-500">
                   Video Editor
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/service/creative" className="hover:text-orange-500">
                   Creative Writing

@@ -25,7 +25,7 @@ const Navbar = () => {
 
           {/* Service Dropdown */}
           <li className="group cursor-pointer hover:text-black relative">
-            Service
+            Services
             <ul
               className="
               absolute left-0 top-8 
@@ -37,10 +37,10 @@ const Navbar = () => {
             "
             >
               <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
-                <Link to="/service/web">Web Development</Link>
+                <Link to="/service/web"> Design $ Development</Link>
               </li>
               <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
-                <Link to="/service/app">App Development</Link>
+                <Link to="/service/app">Android & Ios App Development</Link>
               </li>
               <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
                 <Link to="/service/digital-marketing">Digital Marketing</Link>
@@ -55,11 +55,11 @@ const Navbar = () => {
                 <Link to="/service/software">Software Development</Link>
               </li>
               <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
-                <Link to="/service/email">Email $ Affiliate Marketing</Link>
+                <Link to="/service/email">Email Marketing</Link>
               </li>
-              <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
+              {/* <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
                 <Link to="/service/video">Video Editor</Link>
-              </li>
+              </li> */}
 
               <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
                 <Link to="/service/brand">Brand Prommotion</Link>
@@ -74,7 +74,7 @@ const Navbar = () => {
             <Link to="/industries">Industries</Link>
           </li>
           <li className="cursor-pointer hover:text-black">
-            <Link to="/package">Package</Link>
+            <Link to="/package">Packages</Link>
           </li>
           <li className="cursor-pointer hover:text-black">
             <Link to="/contact">Contact</Link>
@@ -123,13 +123,13 @@ const Navbar = () => {
 
             {/* Mobile Service Dropdown */}
             <details className="text-center min-w-8/12 rounded-2xl">
-              <summary className="cursor-pointer">Service</summary>
+              <summary className="cursor-pointer">Services</summary>
               <ul className="mt-2 bg-[#ff7515] text-black space-y-1">
                 <li>
-                  <Link to="/service/web">Web Development</Link>
+                  <Link to="/service/web"> Design $ Development</Link>
                 </li>
                 <li>
-                  <Link to="/service/app">App Development</Link>
+                  <Link to="/service/app">Android $ Ios App Development</Link>
                 </li>
                 <li>
                   <Link to="/service/digital-marketing">Digital Marketing</Link>
@@ -144,11 +144,11 @@ const Navbar = () => {
                   <Link to="/service/software">Software Development</Link>
                 </li>
                 <li>
-                  <Link to="/service/email">Email $ Affiliate Marketing</Link>
+                  <Link to="/service/email">Email Marketing</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/service/video">Video Editor</Link>
-                </li>
+                </li> */}
 
                 <li>
                   <Link to="/service/brand">Brand Prommotion</Link>
@@ -166,7 +166,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/package" onClick={() => setOpen(false)}>
-                Package
+                Packages
               </Link>
             </li>
             <li>
