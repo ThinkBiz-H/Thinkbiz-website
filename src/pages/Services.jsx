@@ -208,7 +208,7 @@ const Services = () => {
           </div>
         </div>
       </div>
-      {/* <Newsletter /> */}
+      <Newsletter />
     </>
   );
 };
