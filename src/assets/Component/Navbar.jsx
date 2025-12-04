@@ -37,7 +37,7 @@ const Navbar = () => {
             "
             >
               <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
-                <Link to="/service/web"> Design & Development</Link>
+                <Link to="/service/web">WEb Design & Development</Link>
               </li>
               <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
                 <Link to="/service/app">Android & iOS App Development</Link>
@@ -126,7 +126,7 @@ const Navbar = () => {
               <summary className="cursor-pointer">Services</summary>
               <ul className="mt-2 bg-white text-black space-y-1 rounded-2xl">
                 <li>
-                  <Link to="/service/web"> Design & Development</Link>
+                  <Link to="/service/web">Web Design & Development</Link>
                 </li>
                 <li>
                   <Link to="/service/app">Android $ iOS App Development</Link>

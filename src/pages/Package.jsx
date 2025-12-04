@@ -104,6 +104,34 @@ const packagesData = {
       },
     ],
   },
+  "Mobile App Development": {
+    monthly: [
+      {
+        id: 8,
+        name: "Starter",
+        price: 3999,
+        displayPrice: "₹3999",
+        features: [
+          "Social Media Management",
+          "Content Creation",
+          "Basic Ad Campaigns",
+        ],
+      },
+    ],
+    yearly: [
+      {
+        id: 9,
+        name: "Advanced",
+        price: 39999,
+        displayPrice: "₹39999",
+        features: [
+          "Full Campaign Management",
+          "Multi-Channel Ads",
+          "Monthly Analytics",
+        ],
+      },
+    ],
+  },
 };
 
 const Package = () => {

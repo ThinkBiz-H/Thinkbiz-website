@@ -89,7 +89,7 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-300">
               <li>
                 <Link to="/service/web" className="hover:text-orange-500">
-                  Design $ Development
+                  Web Design $ Development
                 </Link>
               </li>
               <li>
