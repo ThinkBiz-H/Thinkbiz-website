@@ -129,7 +129,7 @@ const Navbar = () => {
                   <Link to="/service/web">Web Design & Development</Link>
                 </li>
                 <li>
-                  <Link to="/service/app">Android $ iOS App Development</Link>
+                  <Link to="/service/app">Android & iOS App Development</Link>
                 </li>
                 <li>
                   <Link to="/service/digital-marketing">Digital Marketing</Link>
