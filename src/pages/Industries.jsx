@@ -35,7 +35,7 @@ const industriesData = [
   },
   {
     id: 6,
-    title: "Real Estate",
+    title: "RealEstate",
     icon: "🏠",
     image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
   },
@@ -82,126 +82,85 @@ const industriesDetails = {
   Healthcare: {
     image: industriesData[0].image,
     text: `
-Healthcare industry me digital transformation kaafi fast grow ho rahi hai. Hospitals, clinics, labs 
-aur doctors ko ab smart systems ki zarurat hoti hai jisse patient records secure rahe, appointment 
-booking easy ho, and real-time reports available ho jaye. Telemedicine, online consultation, 
-digital prescriptions aur AI diagnosis apps healthcare ko next level tak le jaati hain. Ek modern 
-website ya app se patient experience 3x improve hota hai, waiting time kam hota hai, aur operations 
-automated ho jate hain. ThinkBhiz Healthcare ke liye secure, scalable aur HIPAA-ready software 
-solutions banata hai.
+ThinkBiz Hightech Pvt. Ltd. provides advanced digital solutions tailored for the healthcare sector, supporting hospitals, clinics, and medical service providers in enhancing patient care and operational efficiency. Our services include secure patient management systems, telemedicine platforms, healthcare mobile apps, and data-driven dashboards that ensure compliance, accuracy, and seamless communication. We focus on improving patient engagement, optimising workflow automation, and enabling healthcare organisations to deliver reliable, modern, and technology-enabled services.
+
 `,
   },
 
   Finance: {
     image: industriesData[1].image,
     text: `
-Finance industry me security sabse bada factor hota hai. Banks, NBFCs, fintech apps aur loan 
-platforms ko safe transaction system, fraud detection, encrypted databases aur real-time analytics 
-ki zarurat hoti hai. Digital onboarding, KYC automation, EMI calculator, wallet, UPI integration 
-financial business ko super fast aur scalable banata hai. Ek modern financial website/app trust 
-aur transparency build karti hai. ThinkBhiz end-to-end secure, RBI-friendly fintech solutions 
-deliver karta hai.
+We support financial institutions with secure, scalable, and high-performance digital solutions that comply with industry regulations and ensure data integrity. Our offerings include fintech platforms, mobile banking applications, automated processes, secure data systems, and digital marketing strategies designed to enhance customer trust and engagement. ThinkBiz helps financial organisations streamline operations, strengthen security, and deliver innovative digital services that meet the evolving expectations of modern consumers.
 `,
   },
 
   Education: {
     image: industriesData[2].image,
     text: `
-Education industry digital tools se 5x fast grow kar rahi hai. Schools, colleges aur institutes 
-ko smart learning apps, online exams, attendance tracking, results automation aur LMS systems ki 
-zarurat hoti hai. Ek digital platform students ke liye personalized learning, parents ke liye 
-updated information aur institutes ke liye smooth administration provide karta hai. 
-ThinkBhiz education brands ke liye modern edTech platforms banata hai.
+ThinkBiz partners with educational institutions to build advanced digital ecosystems that promote effective learning and efficient institutional management. Our solutions include e-learning platforms, student management systems, mobile education apps, and digital content delivery tools. We focus on improving accessibility, enhancing student-teacher interaction, and enabling institutions to manage academic and administrative processes with greater precision and reliability.
 `,
   },
 
   Retail: {
     image: industriesData[3].image,
     text: `
-Retail industry me eCommerce ki demand sabse zyada badh rahi hai. Ek powerful online store, fast 
-checkout system, inventory automation aur payment gateway integration retail business ko 10x scale 
-kar deta hai. Digital presence se customers worldwide reach karte hain. ThinkBhiz retail ke liye 
-AI-based recommendation systems, mobile apps aur high-converting websites banata hai.
+For the retail industry, ThinkBiz develops customer-focused digital solutions that drive engagement, increase conversions, and support omni-channel sales. Our expertise includes e-commerce platforms, mobile shopping applications, inventory management systems, and targeted digital marketing strategies. We help retailers enhance customer experience, optimise operations, and leverage analytics to gain insights into consumer behaviour and market trends.
 `,
   },
 
   Manufacturing: {
     image: industriesData[4].image,
     text: `
-Manufacturing industry me automation sabse bada game changer hai. Smart ERP systems, supply chain 
-tracking, inventory management aur production monitoring se companies apna wastage 40% tak kam 
-kar sakti hain. IoT dashboards aur real-time analytics se pure factory operations optimize hote hain. 
-ThinkBhiz manufacturing brands ke liye end-to-end industrial automation software banata hai.
+We deliver technology-driven solutions that help manufacturing companies automate processes, improve production efficiency, and manage supply chains more effectively. Our services include workflow automation systems, production monitoring dashboards, inventory control solutions, and custom software tailored to industry needs. ThinkBiz enables manufacturers to operate with higher precision, greater scalability, and improved cost-efficiency through robust digital transformation.
 `,
   },
 
   RealEstate: {
     image: industriesData[5].image,
     text: `
-Real Estate industry me digital platforms property sales aur lead generation ko 7x boost dete hain. 
-3D property tours, automated CRM, rent/lease management, online bookings aur virtual site visits 
-buyers ka experience super smooth banate hain. ThinkBhiz real estate ke liye modern property 
-management software aur high-converting real estate websites develop karta hai.
+ThinkBiz supports the real estate industry with digital solutions that simplify property showcasing, customer communication, and lead management. Our websites, mobile apps, and CRM tools enable real estate firms to present properties professionally, capture leads efficiently, and enhance buyer engagement. We focus on creating seamless digital experiences that build trust, improve visibility, and drive property sales through smart automation and modern design.
 `,
   },
 
   Automotive: {
     image: industriesData[6].image,
     text: `
-Automotive industry me advanced software ka use har saal badh raha hai — service booking apps, 
-vehicle diagnostics dashboards, fleet management systems aur EV charging station networks jaisi 
-cheezein digitally manage hoti hain. AI-based maintenance prediction aur GPS tracking fleet cost 
-kam karti hain. ThinkBhiz automotive companies ke liye smart connected solutions banata hai.
+For automotive businesses, ThinkBiz develops digital platforms that enhance customer interaction, streamline dealership operations, and support brand promotion. Our solutions include vehicle listing websites, service scheduling portals, mobile apps, and targeted marketing campaigns. We help automotive companies strengthen customer relationships, showcase products effectively, and optimise workflow through advanced digital technologies.
 `,
   },
 
   Hospitality: {
     image: industriesData[7].image,
     text: `
-Hotels, restaurants aur travel brands ko ab digital presence ki sabse zyada zarurat hoti hai. 
-Online booking systems, digital menus, table reservations, review management aur guest experience 
-automation se hospitality business 4x fast grow hota hai. ThinkBhiz hospitality ke liye elegant 
-websites aur full booking management systems build karta hai.
+ThinkBiz provides hospitals with reliable digital systems designed to improve patient management, staff coordination, and administrative efficiency. Our solutions include hospital management systems, appointment scheduling platforms, patient communication tools, and analytics dashboards. We focus on enhancing service quality, reducing operational delays, and enabling hospitals to adopt modern, technology-backed healthcare processes.
 `,
   },
 
   Telecommunications: {
     image: industriesData[8].image,
     text: `
-Telecom industry me large-scale network management, real-time monitoring aur customer self-service 
-portals essential hote hain. Recharge portals, billing systems, SIM activation apps aur data usage 
-dashboards customers ko seamless experience dete hain. ThinkBhiz telecom companies ke liye scalable 
-network solutions deliver karta hai.
+We support telecom companies with scalable digital solutions that improve network management, customer onboarding, billing operations, and service delivery. Our expertise includes customer portals, self-service apps, automated workflows, and marketing solutions designed to enhance customer satisfaction. ThinkBiz helps telecom providers deliver faster, more reliable, and customer-centric digital experiences.
 `,
   },
 
   Energy: {
     image: industriesData[9].image,
     text: `
-Energy sector me smart grids, usage tracking, IoT meters aur renewable energy monitoring systems ki 
-demand barh rahi hai. AI-based consumption analytics businesses ko cost optimize karne me help karta 
-hai. ThinkBhiz energy companies ke liye smart dashboards, IoT-based control systems aur monitoring 
-platforms develop karta hai.
+ThinkBiz delivers secure and efficient digital solutions for the energy sector, supporting operations such as resource management, monitoring systems, and customer engagement. Our platforms enable real-time insights, enhanced efficiency, and improved decision-making. We help energy companies digitise their processes, reduce operational costs, and adopt smart technologies for sustainable growth.
 `,
   },
 
   Transportation: {
     image: industriesData[10].image,
     text: `
-Transportation aur logistics industry poori tarah digital tools par shift ho rahi hai. Fleet 
-management systems, live tracking, route optimization, delivery apps aur driver analytics se 
-delivery time 60% tak kam hota hai. ThinkBhiz logistics aur transport companies ke liye powerful 
-tracking aur management systems banata hai.
+We create advanced digital platforms that enhance logistics, fleet management, route optimisation, and customer connectivity for transportation businesses. Our solutions include tracking systems, transport management software, mobile apps, and analytics tools. ThinkBiz empowers transportation companies to operate more efficiently, increase transparency, and provide seamless service experiences.
 `,
   },
 
   MediaEntertainment: {
     image: industriesData[11].image,
     text: `
-Media aur entertainment brands ko modern content delivery platforms, streaming websites/apps, 
-digital rights management, creative portfolios aur audience analytics tools ki zarurat hoti hai. 
-OTT-style platforms, video CMS aur monetization tools creators ko global reach dete hain. ThinkBhiz 
-media industry ke liye fast, scalable aur high-performance platforms develop karta hai.
+ThinkBiz develops dynamic digital solutions for the media and entertainment industry, helping organisations enhance content distribution, user engagement, and brand visibility. Our services include streaming platforms, interactive websites, mobile apps, and marketing campaigns tailored for digital audiences. We enable creators and media companies to deliver high-quality, engaging content through modern, technology-driven channels.
 `,
   },
 };

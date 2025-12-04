@@ -27,14 +27,22 @@ const About = () => {
               <br /> That Drive Growth
             </h1>
             <p className="text-lg opacity-90 max-w-lg leading-relaxed">
-              ThinkBhiz Hightech is a next–generation IT company offering
-              innovative software solutions, digital marketing, and branding to
-              help businesses scale globally.
+              ThinkBiz Hightech Pvt. Ltd. is a results-driven digital agency
+              specialising in Website Development, Mobile App Development, SEO,
+              and Digital Marketing services. We help businesses build a
+              powerful online presence and achieve measurable growth through
+              innovative strategies and high-performing digital solutions. Our
+              team combines modern design, robust technology, and data-driven
+              marketing to create websites, applications, and campaigns that
+              convert. Whether it’s developing a seamless user-friendly website,
+              crafting a custom mobile app, boosting online visibility through
+              SEO, or executing ROI-focused digital marketing—ThinkBiz is
+              committed to delivering excellence at every step.
             </p>
 
-            <button className="mt-6 bg-white text-black px-8 py-3 rounded-xl font-semibold hover:bg-gray-200 transition">
+            {/* <button className="mt-6 bg-white text-black px-8 py-3 rounded-xl font-semibold hover:bg-gray-200 transition">
               Learn More
-            </button>
+            </button> */}
           </div>
 
           {/* Right */}
@@ -53,10 +61,15 @@ const About = () => {
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-[#ff7515] mb-6">Our Story</h2>
           <p className="text-gray-600 max-w-4xl mx-auto leading-relaxed text-lg">
-            Since our beginning, ThinkBhiz Hightech has been committed to
-            transforming businesses through technology. What started as a small
-            team is now a trusted global IT partner delivering powerful
-            solutions across multiple industries.
+            ThinkBiz Hightech Pvt. Ltd. was established with the vision of
+            empowering businesses through modern digital solutions. Over the
+            years, we have grown into a trusted provider of Website Development,
+            Mobile App Development, SEO, and Digital Marketing services. Our
+            focus on innovation, quality, and measurable results has enabled us
+            to support brands in building a strong and effective digital
+            presence. Today, we continue to advance with the same commitment—to
+            deliver reliable, scalable, and impactful digital solutions for
+            every client.
           </p>
         </div>
       </section>
