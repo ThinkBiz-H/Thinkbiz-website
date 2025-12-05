@@ -1,4 +1,5 @@
 import React from "react";
+import WhatsAppButton from "../assets/Component/WhatsAppButton";
 
 const Policies = () => {
   return (
@@ -130,6 +131,7 @@ const Policies = () => {
           </p>
         </section>
       </div>
+      <WhatsAppButton />
     </div>
   );
 };

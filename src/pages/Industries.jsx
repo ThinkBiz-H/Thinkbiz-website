@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Newsletter from "../assets/Component/NewsLetterbox";
+import WhatsAppButton from "../assets/Component/WhatsAppButton";
 
 // ======================= INDUSTRIES DATA WITH ONLINE IMAGES =======================
 const industriesData = [
@@ -366,7 +367,7 @@ const Industries = () => {
           </div>
         </div>
       )}
-
+      <WhatsAppButton />
       <Newsletter />
     </div>
   );

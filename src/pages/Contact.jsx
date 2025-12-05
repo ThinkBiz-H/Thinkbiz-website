@@ -15,6 +15,7 @@ import { ref, push } from "firebase/database";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Newsletter from "../assets/Component/NewsLetterbox";
+import WhatsAppButton from "../assets/Component/WhatsAppButton";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -284,6 +285,7 @@ const Contact = () => {
         </div>
         <ToastContainer />
       </div>
+      <WhatsAppButton />
       <Newsletter />
     </>
   );

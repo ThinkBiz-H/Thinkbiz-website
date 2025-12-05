@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import Newsletter from "../assets/Component/NewsLetterbox";
+import WhatsAppButton from "../assets/Component/WhatsAppButton";
 const packagesData = {
   "Web Development": {
     monthly: [
@@ -626,6 +627,7 @@ const Package = () => {
           </section>
         ))}
       </div>
+      <WhatsAppButton />
       <Newsletter />
     </div>
   );

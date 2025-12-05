@@ -16,10 +16,10 @@ const About = () => {
   return (
     <div className="font-sans text-gray-800">
       {/* ================= HERO ================= */}
-      <section className="py-6 px-6 bg-[#ff7515] text-black">
+      <section className="py-6 px-0 bg-[#ff7515] text-black">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-14">
           {/* Left */}
-          <div className="flex-1">
+          <div className="flex-[1.3]">
             <p className="uppercase tracking-wide text-lg mb-3 font-semibold">
               Who We Are
             </p>
@@ -27,7 +27,7 @@ const About = () => {
               Building Digital Experiences
               <br /> That Drive Growth
             </h1>
-            <p className="text-lg opacity-90 max-w-lg leading-relaxed font-semibold">
+            <p className="text-lg opacity-90 max-w-2lg leading-relaxed font-semibold">
               ThinkBiz Hightech Pvt. Ltd. is a results-driven digital agency
               specialising in Website Development, Mobile App Development, SEO,
               and Digital Marketing services. We help businesses build a
@@ -58,7 +58,7 @@ const About = () => {
       </section>
 
       {/* ================= OUR STORY ================= */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-10 px-2 bg-white">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-[#ff7515] mb-6">Our Story</h2>
           <p className="text-gray-900 max-w-4xl mx-auto leading-relaxed text-lg font-semibold">
@@ -76,7 +76,7 @@ const About = () => {
       </section>
 
       {/* ================= MISSION & VISION ================= */}
-      <section className="py-16 bg-gray-50 px-6">
+      <section className="py-1 bg-gray-50 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
           {/* Mission */}
           <div className="p-10 bg-white rounded-2xl shadow-md hover:shadow-xl transition">
