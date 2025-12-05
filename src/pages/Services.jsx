@@ -18,6 +18,13 @@ const serviceContent = {
     ],
     image:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+    technologies: [
+      "React.js",
+      "Tailwind CSS",
+      "Node.js",
+      "Firebase",
+      "REST APIs",
+    ],
   },
   app: {
     title: "App Development",
@@ -34,6 +41,14 @@ const serviceContent = {
     ],
     image:
       "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
+    technologies: [
+      "React Native",
+      "Flutter",
+      "Swift",
+      "Kotlin",
+      "Firebase",
+      "REST APIs",
+    ],
   },
   "digital-marketing": {
     title: "Digital Marketing",
@@ -50,6 +65,13 @@ const serviceContent = {
     ],
     image:
       "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+    technologies: [
+      "Google Ads",
+      "Facebook Ads",
+      "SEO Tools (Ahrefs, SEMrush)",
+      "Email Marketing Platforms",
+      "Content Management Systems",
+    ],
   },
   seo: {
     title: "SEO Services",
@@ -66,6 +88,14 @@ const serviceContent = {
     ],
     image:
       "https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=800&q=80",
+    technologies: [
+      "Google Analytics",
+      "Google Search Console",
+      "SEMrush",
+      "Moz",
+      "Ahrefs",
+      "Screaming Frog",
+    ],
   },
   graphic: {
     title: "Graphic Designing",
@@ -79,6 +109,13 @@ const serviceContent = {
     ],
     image:
       "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=800&q=80",
+    technologies: [
+      "Adobe Photoshop",
+      "Adobe Illustrator",
+      "CorelDRAW",
+      "Figma",
+      "Canva",
+    ],
   },
   software: {
     title: "Software Development",
@@ -95,6 +132,15 @@ const serviceContent = {
     ],
     image:
       "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
+    technologies: [
+      "Java",
+      "C#",
+      ".NET",
+      "AWS",
+      "Azure",
+      "Docker",
+      "Kubernetes",
+    ],
   },
 
   // New Added Services
@@ -113,6 +159,13 @@ const serviceContent = {
     ],
     image:
       "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80",
+    technologies: [
+      "Mailchimp",
+      "SendGrid",
+      "HubSpot",
+      "Constant Contact",
+      "ActiveCampaign",
+    ],
   },
   video: {
     title: "Video Editing",
@@ -126,6 +179,13 @@ const serviceContent = {
     ],
     image:
       "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+    technologies: [
+      "Adobe Premiere Pro",
+      "Final Cut Pro",
+      "DaVinci Resolve",
+      "After Effects",
+      "Filmora",
+    ],
   },
   brand: {
     title: "Brand Promotion",
@@ -142,6 +202,13 @@ const serviceContent = {
     ],
     image:
       "https://images.unsplash.com/photo-1542744173-05336fcc7ad4?auto=format&fit=crop&w=800&q=80",
+    technologies: [
+      "Hootsuite",
+      "Buffer",
+      "Google Analytics",
+      "Canva",
+      "Facebook Business Manager",
+    ],
   },
   creative: {
     title: "Creative Writing",
@@ -155,6 +222,13 @@ const serviceContent = {
     ],
     image:
       "https://images.unsplash.com/photo-1509223197845-458d87318791?auto=format&fit=crop&w=800&q=80",
+    technologies: [
+      "Grammarly",
+      "Hemingway Editor",
+      "Google Docs",
+      "Scrivener",
+      "ProWritingAid",
+    ],
   },
 };
 
@@ -186,18 +260,44 @@ const Services = () => {
       <div className="min-h-screen bg-gray-900 flex justify-center items-center p-6">
         <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-16 bg-gray-800 rounded-3xl shadow-2xl border border-gray-700 p-10">
           {/* Image Section */}
-          <div className="overflow-hidden rounded-3xl shadow-lg border border-gray-700">
-            <img
-              src={service.image}
-              alt={service.title}
-              className="w-full h-auto object-cover transition-transform duration-700 hover:scale-105"
-              loading="lazy"
-            />
+          <div className="flex flex-col h-full items-center">
+            {/* IMAGE */}
+            <div className="overflow-hidden rounded-3xl shadow-lg border border-gray-700 w-full">
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-auto object-cover transition-transform duration-700 hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div className="w-full rounded-xl p-4 my-6 text-gray-200 ">
+              <h3 className="text-4xl font-semibold mb-2 text-orange-400 text-center">
+                Technologies We Use
+              </h3>
+              <ul className="list-disc list-inside space-y-1 text-xl">
+                {service.technologies?.map((tech, index) => (
+                  <li
+                    className="hover:text-orange-500 transition-colors cursor-default"
+                    key={index}
+                  >
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* BUTTON – BILKUL NICHE / BOTTOM */}
+            <Link
+              to="/"
+              className="mt-auto px-6 py-3 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition"
+            >
+              Back to Home
+            </Link>
           </div>
 
           {/* Content Section */}
           <div className="text-white flex flex-col justify-center">
-            <h1 className="text-5xl font-extrabold mb-8 text-orange-500">
+            <h1 className="text-4xl font-extrabold mb-8 text-orange-500">
               {service.title}
             </h1>
             <p className="text-lg leading-relaxed mb-10 text-gray-300">

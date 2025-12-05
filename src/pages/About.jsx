@@ -15,7 +15,7 @@ const About = () => {
   return (
     <div className="font-sans text-gray-800">
       {/* ================= HERO ================= */}
-      <section className="py-24 px-6 bg-[#ff7515] text-white">
+      <section className="py-6 px-6 bg-[#ff7515] text-black">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-14">
           {/* Left */}
           <div className="flex-1">
@@ -26,7 +26,7 @@ const About = () => {
               Building Digital Experiences
               <br /> That Drive Growth
             </h1>
-            <p className="text-lg opacity-90 max-w-lg leading-relaxed">
+            <p className="text-lg opacity-90 max-w-lg leading-relaxed font-semibold">
               ThinkBiz Hightech Pvt. Ltd. is a results-driven digital agency
               specialising in Website Development, Mobile App Development, SEO,
               and Digital Marketing services. We help businesses build a
@@ -60,7 +60,7 @@ const About = () => {
       <section className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-[#ff7515] mb-6">Our Story</h2>
-          <p className="text-gray-600 max-w-4xl mx-auto leading-relaxed text-lg">
+          <p className="text-gray-900 max-w-4xl mx-auto leading-relaxed text-lg font-semibold">
             ThinkBiz Hightech Pvt. Ltd. was established with the vision of
             empowering businesses through modern digital solutions. Over the
             years, we have grown into a trusted provider of Website Development,
@@ -82,7 +82,7 @@ const About = () => {
             <h3 className="text-2xl font-bold text-[#ff7515] mb-4">
               Our Mission
             </h3>
-            <p className="text-gray-600 leading-relaxed text-lg">
+            <p className="text-gray-900 leading-relaxed text-lg font-semibold">
               Why "ThinkBiz HighTech"? Because we believe that the future of
               business lies in the seamless integration of technology and
               creativity. Behind our name is a vision driven by strategy and
@@ -105,7 +105,7 @@ const About = () => {
             <h3 className="text-2xl font-bold text-[#ff7515] mb-4">
               Our Vision
             </h3>
-            <p className="text-gray-600 leading-relaxed text-lg">
+            <p className="text-gray-900 leading-relaxed text-lg font-semibold">
               At ThinkBiz HighTech Pvt Ltd, we aspire to be the driving force
               behind your digital transformation, delivering cost-effective yet
               technologically advanced products and services. Our goal is to
@@ -157,7 +157,7 @@ const About = () => {
             },
             {
               name: "Nibha Thakur",
-              role: "Chief Technology Officer",
+              role: "Technical Product Specialist",
               img: "/mam-image.jpeg",
             },
           ].map((member, i) => (
