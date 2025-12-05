@@ -490,6 +490,9 @@ function loadRazorpayScript() {
   });
 }
 
+// Set your current USD to INR exchange rate here
+const USD_TO_INR_RATE = 83.5; // Example fixed rate, replace with dynamic if needed
+
 const Package = () => {
   const [billing, setBilling] = useState(
     Object.keys(packagesData).reduce((acc, service) => {
@@ -505,7 +508,11 @@ const Package = () => {
     }));
   };
 
-  const handlePayment = async (packageName, price) => {
+  const convertUsdToInrPaise = (usdPrice) => {
+    return Math.round(usdPrice * USD_TO_INR_RATE * 100); // multiply by 100 for paise
+  };
+
+  const handlePayment = async (packageName, priceUSD) => {
     const res = await loadRazorpayScript();
 
     if (!res) {
@@ -515,18 +522,21 @@ const Package = () => {
       return;
     }
 
+    // Convert USD price to INR paise
+    const amountInPaise = convertUsdToInrPaise(priceUSD);
+
     const options = {
-      key: "rzp_test_lQ0iNCGCnEu0x3", // Apna Razorpay test/live key yahan dalein
-      amount: price * 100, // paise mein amount
+      key: "rzp_test_lQ0iNCGCnEu0x3", // Your Razorpay key here
+      amount: amountInPaise, // INR paise
       currency: "INR",
       name: "ThinkBiz High Tech",
       description: `Payment for ${packageName}`,
-      image: "", // Apna logo url
+      image: "", // Your logo URL
       handler: function (response) {
         alert(
           `Payment successful! Payment ID: ${response.razorpay_payment_id}`
         );
-        // Aap yahan payment verify kar sakte ho backend pe ya success page dikha sakte ho
+        // You can verify payment here or redirect user
       },
       prefill: {
         email: "",
