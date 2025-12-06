@@ -21,8 +21,7 @@ const Footer = () => {
             <img src="/logo-black.svg" alt="Logo" className="w-44 h-auto" />
             <p className="text-gray-300 mt-2 leading-relaxed">
               We are a dynamic Software Company not digital agency, remove and
-              before SEO , after SEO comma write custom software and AI
-              automation.
+              before SEO , after SEO,custom software and AI automation.
             </p>
 
             {/* 🔥 ICONS REMOVED — Only Images + Button remain */}
@@ -94,7 +93,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/service/app" className="hover:text-orange-500">
-                  Android & Ios App Development
+                  Android & iOS App Development
                 </Link>
               </li>
               <li>
@@ -122,7 +121,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/service/email" className="hover:text-orange-500">
-                  Email $ Affiliate Marketing
+                  Email & Affiliate Marketing
                 </Link>
               </li>
               <li>
