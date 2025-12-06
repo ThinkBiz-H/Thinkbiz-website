@@ -19,9 +19,10 @@ const Footer = () => {
           {/* 1️⃣ SOCIAL */}
           <div>
             <img src="/logo-black.svg" alt="Logo" className="w-44 h-auto" />
-            <p className="text-gray-300 mt-2 leading-relaxed">
-              We are a dynamic Software Company not digital agency, remove and
-              before SEO , after SEO,custom software and AI automation.
+            <p className="text-gray-300 mt-2 leading-relaxed ">
+              We are a dynamic Software Company committed to delivering
+              cutting-edge solutions in website design,DigitalMarketing
+              ,SEO,Custom Software and AI automation.
             </p>
 
             {/* 🔥 ICONS REMOVED — Only Images + Button remain */}
@@ -171,17 +172,11 @@ const Footer = () => {
 
             {/* Address */}
             <div className="flex items-start gap-3 text-gray-300 mt-3">
-              <FaMapMarkerAlt size={35} className="text-[#ff7515] mt-1" />
+              <FaMapMarkerAlt size={25} className="text-[#ff7515] mt-1" />
               <p>
                 B-46, B Block, Sector 63, Noida, Uttar Pradesh 201301, India
               </p>
             </div>
-
-            {/* Time */}
-            {/* <div className="flex items-center gap-3 text-gray-300 mt-3">
-              <FaClock size={20} className="text-[#ff7515]" />
-              <p>10:00 AM – 06:00 PM</p>
-            </div> */}
 
             {/* Phone */}
             <div className="flex items-center gap-3 text-gray-300 mt-3">

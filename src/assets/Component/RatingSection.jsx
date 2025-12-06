@@ -82,9 +82,11 @@ const RatingSection = () => {
             What Our Clients Say
           </h2>
           <p className="text-white mt-3 leading-relaxed text-3xl">
-            Over the years we have worked with customers globally. Our goal is
-            to deliver meaningful digital results, business growth and customer
-            satisfaction. Here’s what our clients have to say.
+            Over the years, we have had the privilege of serving clients across
+            the globe. Our focus is on delivering impactful digital outcomes,
+            driving business growth, and ensuring exceptional customer
+            satisfaction. Below are the experiences and feedback shared by our
+            clients.
           </p>
         </motion.div>
 

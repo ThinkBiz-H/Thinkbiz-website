@@ -52,7 +52,7 @@ const Vision = () => {
         {/* RIGHT SIDE IMAGE WITH MOUSE ROTATION */}
         <div
           className="rounded-xl shadow-xl overflow-hidden bg-transparent border-none
-                     w-full max-w-md mx-auto md:mx-0 md:w-[450px] md:h-[300px]"
+                     w-full max-w-md mx-auto md:mx-0 md:w-[450px] md:h-[340px]"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           style={{
