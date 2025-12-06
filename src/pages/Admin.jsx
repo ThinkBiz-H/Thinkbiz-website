@@ -16,6 +16,9 @@ const Admin = () => {
     title: "",
     description: "",
     location: "",
+    experience: "",
+    salary: "",
+    deadline: "",
   });
 
   // Listen to user login state
@@ -70,14 +73,33 @@ const Admin = () => {
   // Add new job
   const handleJobSubmit = async (e) => {
     e.preventDefault();
-    if (!jobForm.title || !jobForm.description || !jobForm.location) {
+
+    const { title, description, location, experience, salary, deadline } =
+      jobForm;
+
+    if (
+      !title ||
+      !description ||
+      !location ||
+      !experience ||
+      !salary ||
+      !deadline
+    ) {
       alert("Please fill all fields");
       return;
     }
+
     try {
       await push(dbRef(db, "jobs"), jobForm);
       alert("Job added successfully");
-      setJobForm({ title: "", description: "", location: "" });
+      setJobForm({
+        title: "",
+        description: "",
+        location: "",
+        experience: "",
+        salary: "",
+        deadline: "",
+      });
       fetchJobs();
     } catch (error) {
       alert("Failed to add job: " + error.message);
@@ -181,6 +203,33 @@ const Admin = () => {
           className="w-full p-3 rounded bg-gray-700 text-white"
           required
         />
+        {/* New fields */}
+        <input
+          type="text"
+          placeholder="Experience (e.g., 3 years)"
+          value={jobForm.experience}
+          onChange={(e) =>
+            setJobForm({ ...jobForm, experience: e.target.value })
+          }
+          className="w-full p-3 rounded bg-gray-700 text-white"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Salary (e.g., $5000/month)"
+          value={jobForm.salary}
+          onChange={(e) => setJobForm({ ...jobForm, salary: e.target.value })}
+          className="w-full p-3 rounded bg-gray-700 text-white"
+          required
+        />
+        <input
+          type="date"
+          placeholder="Application Deadline"
+          value={jobForm.deadline}
+          onChange={(e) => setJobForm({ ...jobForm, deadline: e.target.value })}
+          className="w-full p-3 rounded bg-gray-700 text-white"
+          required
+        />
         <button
           type="submit"
           className="bg-orange-500 px-6 py-3 rounded font-semibold hover:bg-orange-600 transition"
@@ -194,20 +243,36 @@ const Admin = () => {
         {jobs.length === 0 && <p>No jobs found.</p>}
 
         <ul className="space-y-4">
-          {jobs.map(({ id, title, description, location }) => (
-            <li key={id} className="bg-gray-800 p-4 rounded">
-              <h3 className="text-xl font-bold text-orange-400">{title}</h3>
-              <p>{description}</p>
-              <p className="italic text-gray-400">Location: {location}</p>
+          {jobs.map(
+            ({
+              id,
+              title,
+              description,
+              location,
+              experience,
+              salary,
+              deadline,
+            }) => (
+              <li key={id} className="bg-gray-800 p-4 rounded">
+                <h3 className="text-xl font-bold text-orange-400">{title}</h3>
+                <p>{description}</p>
+                <p className="italic text-gray-400">Location: {location}</p>
+                <p className="italic text-gray-400">Experience: {experience}</p>
+                <p className="italic text-gray-400">Salary: {salary}</p>
+                <p className="italic text-gray-400">
+                  Deadline:{" "}
+                  {deadline ? new Date(deadline).toLocaleDateString() : "N/A"}
+                </p>
 
-              <button
-                onClick={() => deleteJob(id)}
-                className="mt-3 bg-red-600 px-4 py-2 rounded hover:bg-red-700 transition"
-              >
-                Delete
-              </button>
-            </li>
-          ))}
+                <button
+                  onClick={() => deleteJob(id)}
+                  className="mt-3 bg-red-600 px-4 py-2 rounded hover:bg-red-700 transition"
+                >
+                  Delete
+                </button>
+              </li>
+            )
+          )}
         </ul>
       </div>
     </div>
