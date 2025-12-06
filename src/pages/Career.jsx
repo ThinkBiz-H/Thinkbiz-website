@@ -40,13 +40,12 @@ const Career = () => {
       {/* ===== HEADER ===== */}
       <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
         <div>
-          <p className="text-sm text-indigo-600 font-semibold tracking-wide mb-3">
+          <p className="text-sm text-[#ff7515] font-semibold tracking-wide mb-3">
             • Build the Future With Us •
           </p>
 
           <h1 className="text-5xl font-extrabold leading-tight text-gray-900">
-            Explore{" "}
-            <span className="text-indigo-600">Career Opportunities</span>
+            Explore <span className="text-[#ff7515]">Career Opportunities</span>
             <br /> at ThinkBiz HighTech
           </h1>
 
@@ -56,7 +55,7 @@ const Career = () => {
             <br />
             <a
               href="mailto:info@thinkbizhightech.com"
-              className="text-indigo-600 font-semibold"
+              className="text-[#ff7515] font-semibold"
             >
               info@thinkbizhightech.com
             </a>
@@ -142,7 +141,7 @@ const Career = () => {
                         setSelectedJob(title);
                         setShowModal(true);
                       }}
-                      className="self-start px-10 py-4 text-lg font-medium rounded-full bg-indigo-600 text-white hover:bg-indigo-700 shadow-md transition-all"
+                      className="self-start px-10 py-4 text-lg font-medium rounded-full bg-[#ff7515] text-white hover:bg-black shadow-md transition-all"
                     >
                       Apply Now →
                     </button>
