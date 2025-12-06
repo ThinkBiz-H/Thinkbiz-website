@@ -179,7 +179,7 @@ const Contact = () => {
           {/* Right Side: Contact Form */}
           <div className="md:w-1/2 bg-white rounded-xl p-8 shadow-lg">
             <h2 className="text-3xl font-bold mb-6 text-orange-500">
-              Send Us a Message
+              Reach out to Our Team
             </h2>
             <form onSubmit={handleSubmit} noValidate>
               <div className="mb-5">

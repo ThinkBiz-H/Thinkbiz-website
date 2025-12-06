@@ -13,9 +13,12 @@ import Policies from "./pages/Policies.jsx";
 import Admin from "./pages/Admin.jsx";
 import Footer from "./assets/Component/Footer.jsx";
 
+import ScrollToTop from "./assets/Component/ScrollToTop"; // path adjust karo apne hisaab se
+
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

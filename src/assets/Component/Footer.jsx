@@ -20,9 +20,9 @@ const Footer = () => {
           <div>
             <img src="/logo-black.svg" alt="Logo" className="w-44 h-auto" />
             <p className="text-gray-300 mt-2 leading-relaxed ">
-              We are a dynamic Software Company committed to delivering
-              cutting-edge solutions in website design,DigitalMarketing
-              ,SEO,Custom Software and AI automation.
+              We are a Software Company committed to delivering cutting-edge
+              solutions in website design,DigitalMarketing ,SEO,Custom Software
+              and AI automation.
             </p>
 
             {/* 🔥 ICONS REMOVED — Only Images + Button remain */}
