@@ -172,7 +172,7 @@ const Footer = () => {
 
             {/* Address */}
             <div className="flex items-start gap-3 text-gray-300 mt-3">
-              <FaMapMarkerAlt size={40} className="text-[#ff7515] mt-1" />
+              <FaMapMarkerAlt size={35} className="text-[#ff7515] mt-1" />
               <p>
                 B-46, B Block, Sector 63, Noida, Uttar Pradesh 201301, India
               </p>
