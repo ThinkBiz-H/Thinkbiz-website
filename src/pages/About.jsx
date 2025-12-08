@@ -10,7 +10,7 @@ const About = () => {
   const aboutStats = [
     { value: 150, title: "Projects Completed" },
     { value: 50, title: "Active Clients" },
-    { value: 5, title: "Years Experience" },
+    { value: 3, title: "Years Experience" },
     { value: 10, title: "Countries Served" },
   ];
 
@@ -245,7 +245,7 @@ const About = () => {
           Let’s Build Something Extraordinary
         </h2>
         <p className="opacity-95 text-lg mb-8">
-          Partner with ThinkBhiz Hightech and grow your business digitally.
+          Partner with ThinkBiz Hightech and grow your business digitally.
         </p>
 
         <Link to="/contact">
