@@ -104,14 +104,15 @@ const Contact = () => {
             </h2>
             <div>
               <h3 className="text-xl font-semibold mb-2">
-                ThinkBhiz High Tech Pvt .Ltd
+                ThinkBiz High Tech Pvt .Ltd
               </h3>
               <p className="text-gray-300 leading-relaxed">
-                Looking for Website Development? Android App Development? iOS
-                App Development? Digital Marketing? All of Them? Then You are
-                Exactly at the Right Place.ThinkBiz Hightech Private Limited is
-                the Best Website Development,Android and IOS App Development and
-                Digital Marketing Company. To Know More Contact US.
+                Looking for website development, Android app development, iOS
+                app development, or digital marketing services? You are in the
+                right place. ThinkBiz Hightech Private Limited is a leading
+                company specialising in comprehensive digital solutions,
+                including mobile app development and digital marketing. For more
+                information, feel free to contact us.
               </p>
             </div>
             <div className="flex items-center space-x-3">
@@ -184,7 +185,7 @@ const Contact = () => {
           {/* Right Side: Contact Form */}
           <div className="md:w-1/2 bg-white rounded-xl p-8 shadow-lg">
             <h2 className="text-3xl font-bold mb-6 text-orange-500">
-              Reach out to Our Team
+              Reach Out to Our Team
             </h2>
             <form onSubmit={handleSubmit} noValidate>
               <div className="mb-5">

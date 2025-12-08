@@ -50,7 +50,7 @@ const industriesData = [
   },
   {
     id: 8,
-    title: "Hospitality",
+    title: "Hotel",
     icon: "🏨",
     image:
       "https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
@@ -182,11 +182,11 @@ const industriesDetails = {
     ],
   },
 
-  Hospitality: {
-    title: "Hospitality",
+  Hotel: {
+    title: "Hotel",
     image: industriesData[7].image,
-    heading: "Reliable Digital Systems for Enhanced Hospitality Services",
-    text: `ThinkBiz provides hospitality businesses with reliable digital systems designed to improve guest management, staff coordination, and administrative efficiency. Our solutions include hotel management systems, booking platforms, communication tools, and analytics dashboards.`,
+    heading: "Reliable Digital Systems for Enhanced Hotel Services",
+    text: `ThinkBiz provides hotel businesses with reliable digital systems designed to improve guest management, staff coordination, and administrative efficiency. Our solutions include hotel management systems, booking platforms, communication tools, and analytics dashboards.`,
     points: [
       "Hotel management systems",
       "Online booking platforms",
@@ -228,7 +228,7 @@ const industriesDetails = {
     title: "Transportation",
     image: industriesData[10].image,
     heading: "Advanced Digital Platforms for Transportation Management",
-    text: `We create advanced digital platforms that enhance logistics, fleet management, route optimisation, and customer connectivity for transportation businesses.`,
+    text: `At ThinkBiz, we support the transportation industry with advanced digital solutions that enhance operational efficiency, safety, and customer experience. As the sector evolves with smart mobility, automation, and real-time tracking, we enable organisations to modernise their systems and optimise every stage of their logistics and transportation processes..`,
     points: [
       "Fleet management systems",
       "Route optimisation tools",
@@ -242,7 +242,7 @@ const industriesDetails = {
     title: "MediaEntertainment",
     image: industriesData[11].image,
     heading: "Dynamic Digital Solutions for Media and Entertainment",
-    text: `ThinkBiz develops dynamic digital solutions for the media and entertainment industry, helping organisations enhance content distribution, user engagement, and brand visibility.`,
+    text: `At ThinkBiz, we empower the media and entertainment industry with advanced digital solutions that elevate content creation, distribution, and audience engagement. Our approach is centred on innovation, technical excellence, and an in-depth understanding of modern consumption patterns. We help media organisations, production houses, and digital publishers build robust digital ecosystems that support high-quality streaming, seamless user experiences, and strategic brand growth..`,
     points: [
       "Streaming platforms",
       "Interactive websites",

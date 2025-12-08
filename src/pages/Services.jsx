@@ -6,7 +6,7 @@ import { trackEvent } from "../trackEvent";
 
 const serviceContent = {
   web: {
-    title: "Web Development",
+    title: "Website Design & Development",
     description:
       "ThinkBiz Hightech Pvt. Ltd. delivers professional, secure, and high-performance website solutions tailored to the needs of modern businesses. Our services encompass responsive design, structured user experience, and robust development to ensure reliability across all devices We create corporate websites, e-commerce platforms, and custom web applications that align with brand standards and support long-term digital growth.",
     features: [
@@ -21,8 +21,6 @@ const serviceContent = {
     image:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
     technologies: [
-      "HTML5",
-      "CSS3",
       "JavaScript (ES6+)",
       "React.js",
       "Tailwind CSS",

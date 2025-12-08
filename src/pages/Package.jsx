@@ -186,7 +186,7 @@ const packagesData = {
       {
         id: 3,
         name: "",
-        price: 19999,
+        price: 0,
         displayPrice: "",
         features: [" get extra discount of 15% on yearly package"],
       },
@@ -276,14 +276,9 @@ const packagesData = {
       {
         id: 5,
         name: "SEO Pro",
-        price: 29999,
-        displayPrice: "₹29999",
-        features: [
-          "Full SEO Audit",
-          "Keyword Research & Strategy",
-          "On-Page & Off-Page SEO",
-          "Monthly Reports",
-        ],
+        price: 0,
+        displayPrice: "",
+        features: [" get extra discount of 15% on yearly package"],
       },
     ],
   },
@@ -352,6 +347,7 @@ const packagesData = {
           "Monthly KPI report",
         ],
       },
+      // Uncomment if needed:
       // {
       //   id: 13,
       //   name: "Diamond Package",
@@ -375,13 +371,9 @@ const packagesData = {
       {
         id: 7,
         name: "Advanced",
-        price: 39999,
-        displayPrice: "₹39999",
-        features: [
-          "Full Campaign Management",
-          "Multi-Channel Ads",
-          "Monthly Analytics",
-        ],
+        price: 0,
+        displayPrice: "",
+        features: [" get extra discount of 15% on yearly package"],
       },
     ],
   },
@@ -454,13 +446,236 @@ const packagesData = {
       {
         id: 9,
         name: "Advanced",
-        price: 39999,
-        displayPrice: "₹39999",
+        price: 0,
+        displayPrice: "",
+        features: [" get extra discount of 15% on yearly package"],
+      },
+    ],
+  },
+
+  "Software Development": {
+    monthly: [
+      {
+        id: 101,
+        name: "Starter Development",
+        price: 499,
+        displayPrice: "$499/month",
         features: [
-          "Full Campaign Management",
-          "Multi-Channel Ads",
-          "Monthly Analytics",
+          "Up to 40 hours of development per month",
+          "Bug fixes & minor feature updates",
+          "Basic UI adjustments",
+          "Monthly code review",
+          "Performance optimization (basic)",
+          "Email support",
+          "Monthly progress report",
         ],
+      },
+      {
+        id: 102,
+        name: "Growth Development",
+        price: 799,
+        displayPrice: "$799/month",
+        features: [
+          "Up to 60 hours of development",
+          "New feature development + enhancements",
+          "API integrations (basic)",
+          "Database optimization",
+          "UI/UX improvements",
+          "QA testing (basic)",
+          "Monthly sprint planning call",
+        ],
+      },
+      {
+        id: 103,
+        name: "Professional Development",
+        price: 1199,
+        displayPrice: "$1,199/month",
+        features: [
+          "Up to 100 development hours",
+          "Full-stack development support",
+          "Complex API integrations",
+          "Cloud setup (AWS/Google/Azure)",
+          "Performance & security optimization",
+          "Dedicated project manager",
+          "QA testing + bug resolution",
+          "Bi-weekly sprint meetings",
+        ],
+      },
+      {
+        id: 104,
+        name: "Business Enterprise",
+        price: 1599,
+        displayPrice: "$1,599/month",
+        features: [
+          "Up to 140 development hours",
+          "Complete backend & frontend development",
+          "Scalable architecture planning",
+          "CI/CD Deployment pipeline setup",
+          "Secure authentication (OAuth, JWT)",
+          "Database design & optimization",
+          "Automated testing",
+          "Priority support",
+          "Weekly progress meetings",
+        ],
+      },
+    ],
+    yearly: [
+      {
+        id: 9,
+        name: "Advanced",
+        price: 0,
+        displayPrice: "",
+        features: [" get extra discount of 15% on yearly package"],
+      },
+    ],
+  },
+
+  "Email Marketing": {
+    monthly: [
+      {
+        id: 201,
+        name: "Starter",
+        price: 149,
+        displayPrice: "$149/month",
+        features: [
+          "Up to 1,000 subscribers",
+          "2 email campaigns per month",
+          "Pre-designed templates",
+          "Basic content creation",
+          "Monthly performance report",
+          "Email scheduling",
+          "A/B testing (subject lines only)",
+        ],
+      },
+      {
+        id: 202,
+        name: "Growth",
+        price: 249,
+        displayPrice: "$249/month",
+        features: [
+          "Up to 2,500 subscribers",
+          "4 email campaigns per month",
+          "Custom email templates",
+          "Advanced content creation",
+          "Basic segmentation",
+          "Monthly analytics & insights",
+          "A/B testing (subject lines + content)",
+          "Automation setup (welcome emails / drip campaigns)",
+        ],
+      },
+      {
+        id: 203,
+        name: "Professional",
+        price: 399,
+        displayPrice: "$399/month",
+        features: [
+          "Up to 5,000 subscribers",
+          "6–8 email campaigns per month",
+          "Custom templates + branded designs",
+          "Advanced segmentation & personalization",
+          "Automation setup (drip, welcome series, cart abandonment)",
+          "Detailed monthly report + KPIs",
+          "Integrations with CRM / e-commerce platforms",
+        ],
+      },
+      {
+        id: 204,
+        name: "Premium",
+        price: 599,
+        displayPrice: "$599/month",
+        features: [
+          "Up to 10,000 subscribers",
+          "10–12 campaigns per month",
+          "Dynamic content personalization",
+          "Advanced automation & workflows",
+          "Detailed analytics & ROI tracking",
+          "Email deliverability optimization",
+          "Weekly strategy calls",
+          "CRM & e-commerce integration",
+        ],
+      },
+    ],
+    yearly: [
+      {
+        id: 9,
+        name: "Advanced",
+        price: 0,
+        displayPrice: "",
+        features: [" get extra discount of 15% on yearly package"],
+      },
+    ],
+  },
+
+  "Brand Promotion": {
+    monthly: [
+      {
+        id: 301,
+        name: "Starter",
+        price: 199,
+        displayPrice: "$199/month",
+        features: [
+          "Social media profile setup & branding",
+          "Logo usage guidelines & basic branding kit",
+          "1–2 posts per week for brand visibility",
+          "Basic content creation (text + graphics)",
+          "Brand mentions tracking",
+          "Monthly performance report",
+        ],
+      },
+      {
+        id: 302,
+        name: "Growth",
+        price: 349,
+        displayPrice: "$349/month",
+        features: [
+          "Social media branding on 2 platforms",
+          "3–4 posts per week",
+          "Professional graphics & branding assets",
+          "Competitor brand analysis",
+          "Monthly report + insights",
+          "Influencer outreach (micro-influencers)",
+          "Online brand visibility tracking",
+        ],
+      },
+      {
+        id: 303,
+        name: "Professional",
+        price: 499,
+        displayPrice: "$499/month",
+        features: [
+          "Social media branding on 3 platforms",
+          "4–5 posts per week + stories/reels",
+          "Branding content strategy",
+          "Competitor & market analysis",
+          "Influencer collaborations (moderate scale)",
+          "PR mentions & outreach",
+          "Brand visibility & engagement report",
+          "Monthly strategy call",
+        ],
+      },
+      {
+        id: 304,
+        name: "Premium",
+        price: 699,
+        displayPrice: "$699/month",
+        features: [
+          "Social media branding on 4 platforms",
+          "6–8 posts per week + video content",
+          "Influencer collaborations (medium tier)",
+          "PR & media mentions",
+          "Brand positioning strategy",
+          "Analytics dashboard + engagement tracking",
+          "Monthly strategy & performance meeting",
+        ],
+      },
+    ],
+    yearly: [
+      {
+        id: 9,
+        name: "Advanced",
+        price: 0,
+        displayPrice: "",
+        features: [" get extra discount of 15% on yearly package"],
       },
     ],
   },
@@ -485,9 +700,6 @@ function loadRazorpayScript() {
   });
 }
 
-// Set your current USD to INR exchange rate here
-const USD_TO_INR_RATE = 83.5; // Example fixed rate, replace with dynamic if needed
-
 const Package = () => {
   const [billing, setBilling] = useState(
     Object.keys(packagesData).reduce((acc, service) => {
@@ -503,8 +715,17 @@ const Package = () => {
     }));
   };
 
-  const convertUsdToInrPaise = (usdPrice) => {
-    return Math.round(usdPrice * USD_TO_INR_RATE * 100); // multiply by 100 for paise
+  const fetchLiveUsdToInrRate = async () => {
+    try {
+      const response = await fetch(
+        "https://api.exchangerate-api.com/v4/latest/USD"
+      );
+      const data = await response.json();
+      return data.rates.INR;
+    } catch (error) {
+      console.error("Failed to fetch live exchange rate:", error);
+      return 83.5; // fallback
+    }
   };
 
   const handlePayment = async (packageName, priceUSD) => {
@@ -517,21 +738,21 @@ const Package = () => {
       return;
     }
 
-    // Convert USD price to INR paise
-    const amountInPaise = convertUsdToInrPaise(priceUSD);
+    const USD_TO_INR_RATE = await fetchLiveUsdToInrRate();
+
+    const amountInPaise = Math.round(priceUSD * USD_TO_INR_RATE * 100);
 
     const options = {
-      key: "rzp_test_lQ0iNCGCnEu0x3", // Your Razorpay key here
-      amount: amountInPaise, // INR paise
+      key: "rzp_test_lQ0iNCGCnEu0x3", // apna Razorpay key yahan daal
+      amount: amountInPaise,
       currency: "INR",
       name: "ThinkBiz High Tech",
       description: `Payment for ${packageName}`,
-      image: "", // Your logo URL
+      image: "",
       handler: function (response) {
         alert(
           `Payment successful! Payment ID: ${response.razorpay_payment_id}`
         );
-        // You can verify payment here or redirect user
       },
       prefill: {
         email: "",
@@ -583,38 +804,48 @@ const Package = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-              {packageGroup[billing[serviceName]].map(
-                ({ id, name, displayPrice, features, price }) => (
-                  <div
-                    key={id}
-                    className="bg-gray-800 rounded-3xl p-8 shadow-lg border border-gray-700 hover:shadow-2xl hover:scale-105 transform transition duration-500 cursor-pointer flex flex-col justify-between"
-                  >
-                    <h3 className="text-3xl font-bold mb-4 text-orange-400">
-                      {name}
-                    </h3>
-                    <p className="text-3xl font-extrabold mb-6">
-                      {displayPrice}
-                    </p>
-
-                    <ul className="text-gray-300 mb-6 space-y-3 text-left flex-grow">
-                      {features.map((feature, idx) => (
-                        <li
-                          key={idx}
-                          className="flex items-center gap-2 before:content-none"
-                        >
-                          <FaCheck className="text-orange-500" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <button
-                      onClick={() => handlePayment(name, price)}
-                      className="w-full bg-orange-500 text-gray-900 font-semibold py-3 rounded-full hover:bg-orange-600 transition"
+              {packageGroup[billing[serviceName]].length === 1 &&
+              packageGroup[billing[serviceName]][0].features.length === 1 &&
+              packageGroup[billing[serviceName]][0].features[0]
+                .toLowerCase()
+                .includes("discount") ? (
+                <div className="col-span-full text-center text-orange-400 text-2xl font-semibold p-16 bg-gray-800 rounded-3xl border border-gray-700">
+                  {packageGroup[billing[serviceName]][0].features[0]}
+                </div>
+              ) : (
+                packageGroup[billing[serviceName]].map(
+                  ({ id, name, displayPrice, features, price }) => (
+                    <div
+                      key={id}
+                      className="bg-gray-800 rounded-3xl p-8 shadow-lg border border-gray-700 hover:shadow-2xl hover:scale-105 transform transition duration-500 cursor-pointer flex flex-col justify-between"
                     >
-                      Get Started
-                    </button>
-                  </div>
+                      <h3 className="text-3xl font-bold mb-4 text-orange-400">
+                        {name}
+                      </h3>
+                      <p className="text-3xl font-extrabold mb-6">
+                        {displayPrice}
+                      </p>
+
+                      <ul className="text-gray-300 mb-6 space-y-3 text-left flex-grow">
+                        {features.map((feature, idx) => (
+                          <li
+                            key={idx}
+                            className="flex items-center gap-2 before:content-none"
+                          >
+                            <FaCheck className="text-orange-500" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <button
+                        onClick={() => handlePayment(name, price)}
+                        className="w-full bg-orange-500 text-gray-900 font-semibold py-3 rounded-full hover:bg-orange-600 transition"
+                      >
+                        Get Started
+                      </button>
+                    </div>
+                  )
                 )
               )}
             </div>
