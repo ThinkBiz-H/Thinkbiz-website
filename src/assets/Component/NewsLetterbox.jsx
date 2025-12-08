@@ -2,9 +2,18 @@ import React from "react";
 import Lottie from "lottie-react";
 import animationData from "../../assets/CoolMan.json";
 
+// ⭐ Correct import (src folder se)
+import trackEvent from "../../trackEvent";
+
 const Newsletter = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // ⭐ Firebase Analytics Event Track
+    trackEvent("newsletter_subscribe", {
+      location: "newsletter_section",
+    });
+
     alert("Subscribed!");
   };
 

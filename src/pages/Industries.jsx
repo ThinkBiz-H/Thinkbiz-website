@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Newsletter from "../assets/Component/NewsLetterbox";
-import WhatsAppButton from "../assets/Component/WhatsAppButton";
+import trackEvent from "../trackEvent"; // Import your GA event helper
 
 // ======================= INDUSTRIES DATA WITH ONLINE IMAGES =======================
 const industriesData = [
@@ -258,6 +257,20 @@ const Industries = () => {
   const [selected, setSelected] = useState(null);
   const selectedIndustry = industriesDetails[selected];
 
+  // Track when user selects an industry
+  const handleIndustryClick = (title) => {
+    setSelected(title);
+    trackEvent("Industries", "Select Industry", title);
+  };
+
+  // Track when modal closes
+  const handleCloseModal = () => {
+    if (selectedIndustry) {
+      trackEvent("Industries", "Close Modal", selectedIndustry.title);
+    }
+    setSelected(null);
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 text-white py-16 px-6 relative">
       <div className="max-w-7xl mx-auto text-center">
@@ -275,12 +288,16 @@ const Industries = () => {
             <div
               key={id}
               className="bg-gray-800 rounded-3xl p-8 shadow-lg border border-gray-700 hover:shadow-2xl hover:scale-105 transform transition duration-300 cursor-pointer"
+              onClick={() => handleIndustryClick(title)}
             >
               <div className="text-7xl mb-6 text-orange-500">{icon}</div>
               <h2 className="text-2xl font-semibold mb-4">{title}</h2>
 
               <button
-                onClick={() => setSelected(title)}
+                onClick={(e) => {
+                  e.stopPropagation(); // prevent parent div click firing twice
+                  handleIndustryClick(title);
+                }}
                 className="bg-orange-500 text-gray-900 font-semibold px-6 py-2 rounded-full hover:bg-orange-600 transition"
               >
                 Learn More
@@ -296,7 +313,7 @@ const Industries = () => {
           <div className="bg-white w-full max-w-4xl h-auto p-8 rounded-2xl shadow-2xl relative overflow-y-visible max-h-none text-gray-900">
             {/* CLOSE BUTTON */}
             <button
-              onClick={() => setSelected(null)}
+              onClick={handleCloseModal}
               className="absolute top-3 right-3 text-gray-500 hover:text-black text-3xl"
             >
               ×
@@ -326,11 +343,11 @@ const Industries = () => {
                   ))}
                 </ul>
 
-                {/* BUTTONS  */}
+                {/* BUTTONS */}
                 <div className="flex gap-4 mt-0">
                   {/* Close Button */}
                   <button
-                    onClick={() => setSelected(null)}
+                    onClick={handleCloseModal}
                     className="bg-[#ff7515] text-white font-semibold px-8 py-3 rounded-full hover:bg-black transition"
                   >
                     Industries
@@ -357,9 +374,9 @@ const Industries = () => {
                 </h2>
                 <p
                   className="
-    text-lg leading-relaxed whitespace-pre-line 
-    max-h-90 overflow-hidden
-  "
+                    text-lg leading-relaxed whitespace-pre-line
+                    max-h-90 overflow-hidden
+                  "
                 >
                   {selectedIndustry.text}
                 </p>
@@ -368,8 +385,6 @@ const Industries = () => {
           </div>
         </div>
       )}
-      <WhatsAppButton />
-      <Newsletter />
     </div>
   );
 };

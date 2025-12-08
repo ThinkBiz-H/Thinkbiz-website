@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { toast } from "react-toastify"; // import karo toast
+import { toast } from "react-toastify";
 import WhatsAppButton from "./WhatsAppButton";
+import trackEvent from "../../trackEvent";
 
 const ApplyForm = ({ jobTitle, onClose }) => {
   const [formData, setFormData] = useState({
@@ -17,6 +18,14 @@ const ApplyForm = ({ jobTitle, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // ⭐ GA EVENT — Form Submit
+    trackEvent("apply_form_submit", {
+      job: jobTitle,
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+    });
+
     const whatsappNumber = "918512001218";
 
     const message = `Hi, I want to apply for the job: ${jobTitle}.\nHere are my details:\nName: ${
@@ -29,10 +38,14 @@ const ApplyForm = ({ jobTitle, onClose }) => {
       message
     )}`;
 
+    // ⭐ GA EVENT — Redirect to WhatsApp
+    trackEvent("apply_whatsapp_redirect", {
+      job: jobTitle,
+      source: "career_form",
+    });
+
     window.open(whatsappUrl, "_blank");
-
-    toast.success("Redirecting to WhatsApp..."); // alert ki jagah toast yahan
-
+    toast.success("Redirecting to WhatsApp...");
     onClose();
   };
 
@@ -46,9 +59,11 @@ const ApplyForm = ({ jobTitle, onClose }) => {
         >
           &times;
         </button>
+
         <h2 className="text-2xl font-bold text-orange-500 mb-4">
           Apply for {jobTitle}
         </h2>
+
         <form onSubmit={handleSubmit} className="space-y-4 text-white">
           <input
             type="text"
@@ -59,6 +74,7 @@ const ApplyForm = ({ jobTitle, onClose }) => {
             required
             className="w-full p-2 rounded bg-gray-800"
           />
+
           <input
             type="email"
             name="email"
@@ -68,6 +84,7 @@ const ApplyForm = ({ jobTitle, onClose }) => {
             required
             className="w-full p-2 rounded bg-gray-800"
           />
+
           <input
             type="tel"
             name="phone"
@@ -77,6 +94,7 @@ const ApplyForm = ({ jobTitle, onClose }) => {
             required
             className="w-full p-2 rounded bg-gray-800"
           />
+
           <input
             type="text"
             name="resumeLink"
@@ -85,6 +103,7 @@ const ApplyForm = ({ jobTitle, onClose }) => {
             onChange={handleChange}
             className="w-full p-2 rounded bg-gray-800"
           />
+
           <button
             type="submit"
             className="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded w-full font-semibold"
@@ -93,6 +112,7 @@ const ApplyForm = ({ jobTitle, onClose }) => {
           </button>
         </form>
       </div>
+
       <WhatsAppButton />
     </div>
   );

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Newsletter from "../assets/Component/NewsLetterbox";
 import WhatsAppButton from "../assets/Component/WhatsAppButton";
+import trackEvent from "../trackEvent";
 
 const serviceContent = {
   web: {
@@ -20,27 +21,18 @@ const serviceContent = {
     image:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
     technologies: [
-      // Frontend
       "HTML5",
       "CSS3",
       "JavaScript (ES6+)",
       "React.js",
       "Tailwind CSS",
-
-      // Backend
       "Node.js",
       "Express.js",
-
-      // Database
       "MongoDB",
       "Firebase Firestore / Realtime DB",
-
-      // API & Integration
       "REST APIs",
       "Authentication (JWT / Firebase Auth)",
       "Third-party Integrations",
-
-      // DevOps / Tools
       "Git & GitHub",
       "NPM / Yarn",
       "Postman",
@@ -164,7 +156,6 @@ const serviceContent = {
     ],
   },
 
-  // New Added Services
   email: {
     title: "Email & Affiliate Marketing",
     description:
@@ -257,6 +248,12 @@ const Services = () => {
   const { serviceName } = useParams();
   const service = serviceContent[serviceName];
 
+  useEffect(() => {
+    if (service) {
+      trackEvent("Services", "PageView", service.title);
+    }
+  }, [serviceName]);
+
   if (!service) {
     return (
       <div className="min-h-screen flex flex-col justify-center items-center bg-gray-900 p-8">
@@ -269,6 +266,13 @@ const Services = () => {
         <Link
           to="/services"
           className="inline-block bg-orange-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-orange-700 transition"
+          onClick={() =>
+            trackEvent(
+              "Services",
+              "BackToServices_Click",
+              "Service Not Found Page"
+            )
+          }
         >
           Back to Services
         </Link>
@@ -311,6 +315,13 @@ const Services = () => {
             <Link
               to="/"
               className="mt-auto px-6 py-3 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition"
+              onClick={() =>
+                trackEvent(
+                  "Services",
+                  "BackToHome_Click",
+                  `Back to Home from ${service.title}`
+                )
+              }
             >
               Back to Home
             </Link>
@@ -338,15 +349,6 @@ const Services = () => {
                 </li>
               ))}
             </ul>
-
-            <div className="mt-12">
-              {/* <Link
-                to="/services"
-                className="inline-block bg-orange-600 text-white px-8 py-4 rounded-xl shadow-lg hover:bg-orange-700 transition"
-              >
-                ← Back to Services
-              </Link> */}
-            </div>
           </div>
         </div>
       </div>

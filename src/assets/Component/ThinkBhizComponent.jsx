@@ -5,6 +5,8 @@ import { ref, push } from "firebase/database";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import trackEvent from "../../trackEvent"; // <<====== ADDED
+
 const texts = [
   "Grow your business with us",
   "Innovative Solutions",
@@ -41,6 +43,10 @@ export default function ThinkBhizComponent() {
   const handleConfirm = () => {
     if (!selectedDate) return toast.error("Please select a date first!");
 
+    trackEvent("meeting_confirm", {
+      selected_date: selectedDate,
+    });
+
     const phoneNumber = "918512001218";
     const message = encodeURIComponent(
       `Hello! I want to schedule a meeting on ${selectedDate}`
@@ -58,6 +64,12 @@ export default function ThinkBhizComponent() {
     e.preventDefault();
 
     await push(ref(db, "contactForm"), formData);
+
+    /** FIREBASE ANALYTICS EVENT */
+    trackEvent("contact_form_submitted", {
+      name: formData.name,
+      service: formData.service,
+    });
 
     toast.success("Form submitted successfully!");
 
@@ -96,7 +108,10 @@ export default function ThinkBhizComponent() {
         </p>
 
         <button
-          onClick={() => setShowCalendar(!showCalendar)}
+          onClick={() => {
+            setShowCalendar(!showCalendar);
+            trackEvent("meeting_button_click");
+          }}
           className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-500 text-white text-sm font-semibold rounded-full hover:brightness-110 transition w-fit"
         >
           Schedule Meeting
@@ -205,7 +220,7 @@ export default function ThinkBhizComponent() {
         </form>
       </div>
 
-      {/* ToastContainer ONLY in this page */}
+      {/* ToastContainer */}
       <ToastContainer position="top-right" autoClose={2000} />
     </div>
   );

@@ -10,6 +10,7 @@ import {
   ShoppingCart,
   Megaphone,
 } from "lucide-react";
+import trackEvent from "../../trackEvent";
 
 const services = [
   {
@@ -72,43 +73,48 @@ const services = [
 
 const ServiceCard = () => {
   return (
-    <>
-      <div className="max-w-full mx-auto py-16 px-6 font-sans bg-black">
-        <h2 className="text-6xl font-bold text-center mb-12 text-[#ff7515]">
-          Our Services
-        </h2>
+    <div className="max-w-full mx-auto py-16 px-6 font-sans bg-black">
+      <h2 className="text-6xl font-bold text-center mb-12 text-[#ff7515]">
+        Our Services
+      </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className="p-6 rounded-2xl shadow-lg cursor-pointer transition-transform duration-300 hover:scale-105 hover:-translate-y-2 bg-white"
+          >
             <div
-              key={index}
-              className="p-6 rounded-2xl shadow-lg cursor-pointer transition-transform duration-300 hover:scale-105 hover:-translate-y-2 bg-white"
+              className={`w-14 h-14 rounded-full flex items-center justify-center ${service.bg} mb-4`}
             >
-              <div
-                className={`w-14 h-14 rounded-full flex items-center justify-center ${service.bg} mb-4`}
-              >
-                {service.icon}
-              </div>
-
-              <h3 className="text-2xl font-bold mb-3 text-[#ff7515]">
-                {service.title}
-              </h3>
-
-              <p className="text-black text-sm font-semibold leading-relaxed mb-4">
-                {service.text}
-              </p>
-
-              <Link
-                to={`/service/${service.path}`}
-                className="mt-2 px-4 py-2 bg-black text-white text-sm rounded-lg font-semibold hover:bg-[#ff7515] hover:text-black transition inline-block"
-              >
-                Read More
-              </Link>
+              {service.icon}
             </div>
-          ))}
-        </div>
+
+            <h3 className="text-2xl font-bold mb-3 text-[#ff7515]">
+              {service.title}
+            </h3>
+
+            <p className="text-black text-sm font-semibold leading-relaxed mb-4">
+              {service.text}
+            </p>
+
+            <Link
+              to={`/service/${service.path}`}
+              className="mt-2 px-4 py-2 bg-black text-white text-sm rounded-lg font-semibold hover:bg-[#ff7515] hover:text-black transition inline-block"
+              // ⭐ EVENT TRACKING
+              onClick={() =>
+                trackEvent("service_read_more_click", {
+                  service_name: service.title,
+                  path: service.path,
+                })
+              }
+            >
+              Read More
+            </Link>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 

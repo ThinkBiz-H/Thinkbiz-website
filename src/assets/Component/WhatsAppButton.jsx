@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { FaWhatsapp } from "react-icons/fa";
+import trackEvent from "../../trackEvent"; // <<==== ADD THIS
 
 const WhatsAppButton = () => {
   const [open, setOpen] = useState(false);
   const [animate, setAnimate] = useState(false);
-  const phoneNumber = "918512001218"; // Your WhatsApp number with country code
+  const phoneNumber = "918512001218";
   const message = encodeURIComponent("Hello! I want to chat with you.");
 
   useEffect(() => {
@@ -17,13 +18,23 @@ const WhatsAppButton = () => {
     }
   }, [open]);
 
-  const togglePopup = () => setOpen((prev) => !prev);
+  const togglePopup = () => {
+    setOpen((prev) => !prev);
+
+    // 🔥 Track Open / Close
+    trackEvent("whatsapp_popup_toggle", {
+      status: !open ? "opened" : "closed",
+    });
+  };
 
   return (
     <>
-      {/* Floating WhatsApp button with pulse */}
+      {/* Floating WhatsApp button */}
       <button
-        onClick={togglePopup}
+        onClick={() => {
+          togglePopup();
+          trackEvent("whatsapp_floating_btn_click"); // 🔥 Track Floating Click
+        }}
         aria-label="WhatsApp Chat"
         className="fixed bottom-8 right-8 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-xl
           transform transition duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-green-400 z-50
@@ -36,7 +47,7 @@ const WhatsAppButton = () => {
         />
       </button>
 
-      {/* Backdrop */}
+      {/* Background Blur */}
       <div
         className={`fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm transition-opacity duration-300 ${
           open
@@ -46,7 +57,7 @@ const WhatsAppButton = () => {
         onClick={togglePopup}
       ></div>
 
-      {/* Popup */}
+      {/* Popup Window */}
       {animate && (
         <div
           className={`fixed bottom-24 right-8 bg-white rounded-2xl shadow-2xl w-80 p-6 z-50
@@ -58,7 +69,10 @@ const WhatsAppButton = () => {
               Chat with us on WhatsApp
             </h3>
             <button
-              onClick={togglePopup}
+              onClick={() => {
+                togglePopup();
+                trackEvent("whatsapp_popup_close_btn_click"); // 🔥 Track Close Btn
+              }}
               aria-label="Close"
               className="text-gray-500 hover:text-gray-700 focus:outline-none"
             >
@@ -75,7 +89,12 @@ const WhatsAppButton = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 rounded-lg text-center shadow-md transition"
-            onClick={() => setOpen(false)}
+            onClick={() => {
+              setOpen(false);
+              trackEvent("whatsapp_chat_start", {
+                phone: phoneNumber,
+              }); // 🔥 Track WhatsApp Chat Start
+            }}
           >
             Start WhatsApp Chat
           </a>

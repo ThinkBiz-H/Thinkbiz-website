@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import trackEvent from "../../trackEvent";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -9,7 +10,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <Link to="/">
+          <Link to="/" onClick={() => trackEvent("navbar_logo_click")}>
             <img src="/logo-white.jpeg" alt="logo" className="w-40 h-auto" />
           </Link>
         </div>
@@ -17,10 +18,21 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 font-semibold text-orange-400 relative">
           <li className="cursor-pointer hover:text-black">
-            <Link to="/">Home</Link>
+            <Link
+              to="/"
+              onClick={() => trackEvent("navbar_navigation", { page: "Home" })}
+            >
+              Home
+            </Link>
           </li>
+
           <li className="cursor-pointer hover:text-black">
-            <Link to="/about">About</Link>
+            <Link
+              to="/about"
+              onClick={() => trackEvent("navbar_navigation", { page: "About" })}
+            >
+              About
+            </Link>
           </li>
 
           {/* Service Dropdown */}
@@ -37,55 +49,135 @@ const Navbar = () => {
             "
             >
               <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
-                <Link to="/service/web">Website Design & Development</Link>
+                <Link
+                  to="/service/web"
+                  onClick={() =>
+                    trackEvent("navbar_service", { service: "Web Development" })
+                  }
+                >
+                  Website Design & Development
+                </Link>
               </li>
               <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
-                <Link to="/service/app">Android & iOS App Development</Link>
+                <Link
+                  to="/service/app"
+                  onClick={() =>
+                    trackEvent("navbar_service", { service: "App Development" })
+                  }
+                >
+                  Android & iOS App Development
+                </Link>
               </li>
-              <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
-                <Link to="/service/digital-marketing">Digital Marketing</Link>
-              </li>
-              <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
-                <Link to="/service/seo">SEO Services</Link>
-              </li>
-              {/* <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
-                <Link to="/service/graphic">Graphic Designing</Link>
-              </li> */}
-              <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
-                <Link to="/service/software">Software Development</Link>
-              </li>
-              <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
-                <Link to="/service/email">Email Marketing</Link>
-              </li>
-              {/* <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
-                <Link to="/service/video">Video Editor</Link>
-              </li> */}
 
               <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
-                <Link to="/service/brand">Brand Prommotion</Link>
+                <Link
+                  to="/service/digital-marketing"
+                  onClick={() =>
+                    trackEvent("navbar_service", {
+                      service: "Digital Marketing",
+                    })
+                  }
+                >
+                  Digital Marketing
+                </Link>
               </li>
-              {/* <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
-                <Link to="/service/creative">Creative Writing</Link>
-              </li> */}
+
+              <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
+                <Link
+                  to="/service/seo"
+                  onClick={() =>
+                    trackEvent("navbar_service", { service: "SEO Services" })
+                  }
+                >
+                  SEO Services
+                </Link>
+              </li>
+
+              <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
+                <Link
+                  to="/service/software"
+                  onClick={() =>
+                    trackEvent("navbar_service", {
+                      service: "Software Development",
+                    })
+                  }
+                >
+                  Software Development
+                </Link>
+              </li>
+
+              <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
+                <Link
+                  to="/service/email"
+                  onClick={() =>
+                    trackEvent("navbar_service", { service: "Email Marketing" })
+                  }
+                >
+                  Email Marketing
+                </Link>
+              </li>
+
+              <li className="py-2 px-2 hover:bg-gray-100 rounded-md">
+                <Link
+                  to="/service/brand"
+                  onClick={() =>
+                    trackEvent("navbar_service", { service: "Brand Promotion" })
+                  }
+                >
+                  Brand Prommotion
+                </Link>
+              </li>
             </ul>
           </li>
 
           <li className="cursor-pointer hover:text-black">
-            <Link to="/industries">Industries</Link>
+            <Link
+              to="/industries"
+              onClick={() =>
+                trackEvent("navbar_navigation", { page: "Industries" })
+              }
+            >
+              Industries
+            </Link>
           </li>
+
           <li className="cursor-pointer hover:text-black">
-            <Link to="/package">Pricing</Link>
+            <Link
+              to="/package"
+              onClick={() =>
+                trackEvent("navbar_navigation", { page: "Pricing" })
+              }
+            >
+              Pricing
+            </Link>
           </li>
+
           <li className="cursor-pointer hover:text-black">
-            <Link to="/contact">Contact</Link>
+            <Link
+              to="/contact"
+              onClick={() =>
+                trackEvent("navbar_navigation", { page: "Contact" })
+              }
+            >
+              Contact
+            </Link>
           </li>
         </ul>
 
         {/* Desktop Right */}
         <div className="hidden md:flex items-center gap-6">
-          <h3 className="font-bold">+91-8512001218</h3>
+          <h3
+            className="font-bold"
+            onClick={() => trackEvent("navbar_phone_click")}
+          >
+            +91-8512001218
+          </h3>
+
           <Link
             to="/contact"
+            onClick={() =>
+              trackEvent("navbar_cta_click", { button: "Free Quote" })
+            }
             className="bg-orange-400 text-black px-4 py-2 rounded-xl font-semibold hover:bg-orange-500 transition inline-block text-center"
           >
             Free Quote
@@ -97,7 +189,10 @@ const Navbar = () => {
           className={`md:hidden text-black text-3xl transition-transform duration-500 ${
             open ? "rotate-90" : "rotate-0"
           }`}
-          onClick={() => setOpen(!open)}
+          onClick={() => {
+            setOpen(!open);
+            trackEvent("navbar_mobile_toggle", { open: !open });
+          }}
         >
           {open ? "✕" : "☰"}
         </button>
@@ -111,12 +206,25 @@ const Navbar = () => {
         <div className="mt-0 space-y-0 bg-black p-2 rounded-lg border border-gray-700 items-center">
           <ul className="flex flex-col gap-3 text-orange-400 font-semibold items-center rounded-full min-w-8/12">
             <li>
-              <Link to="/" onClick={() => setOpen(false)}>
+              <Link
+                to="/"
+                onClick={() => {
+                  setOpen(false);
+                  trackEvent("navbar_mobile_nav", { page: "Home" });
+                }}
+              >
                 Home
               </Link>
             </li>
+
             <li>
-              <Link to="/about" onClick={() => setOpen(false)}>
+              <Link
+                to="/about"
+                onClick={() => {
+                  setOpen(false);
+                  trackEvent("navbar_mobile_nav", { page: "About" });
+                }}
+              >
                 About
               </Link>
             </li>
@@ -126,62 +234,150 @@ const Navbar = () => {
               <summary className="cursor-pointer">Services</summary>
               <ul className="mt-2 bg-white text-black space-y-1 rounded-2xl">
                 <li>
-                  <Link to="/service/web">Website Design & Development</Link>
+                  <Link
+                    to="/service/web"
+                    onClick={() =>
+                      trackEvent("navbar_mobile_service", {
+                        service: "Web Development",
+                      })
+                    }
+                  >
+                    Website Design & Development
+                  </Link>
                 </li>
-                <li>
-                  <Link to="/service/app">Android & iOS App Development</Link>
-                </li>
-                <li>
-                  <Link to="/service/digital-marketing">Digital Marketing</Link>
-                </li>
-                <li>
-                  <Link to="/service/seo">SEO Services</Link>
-                </li>
-                {/* <li>
-                  <Link to="/service/graphic">Graphic Designing</Link>
-                </li> */}
-                <li>
-                  <Link to="/service/software">Software Development</Link>
-                </li>
-                <li>
-                  <Link to="/service/email">Email Marketing</Link>
-                </li>
-                {/* <li>
-                  <Link to="/service/video">Video Editor</Link>
-                </li> */}
 
                 <li>
-                  <Link to="/service/brand">Brand Prommotion</Link>
+                  <Link
+                    to="/service/app"
+                    onClick={() =>
+                      trackEvent("navbar_mobile_service", {
+                        service: "App Development",
+                      })
+                    }
+                  >
+                    Android & iOS App Development
+                  </Link>
                 </li>
-                {/* <li>
-                  <Link to="/service/creative">Creative Writing</Link>
-                </li> */}
+
+                <li>
+                  <Link
+                    to="/service/digital-marketing"
+                    onClick={() =>
+                      trackEvent("navbar_mobile_service", {
+                        service: "Digital Marketing",
+                      })
+                    }
+                  >
+                    Digital Marketing
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to="/service/seo"
+                    onClick={() =>
+                      trackEvent("navbar_mobile_service", {
+                        service: "SEO Services",
+                      })
+                    }
+                  >
+                    SEO Services
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to="/service/software"
+                    onClick={() =>
+                      trackEvent("navbar_mobile_service", {
+                        service: "Software Development",
+                      })
+                    }
+                  >
+                    Software Development
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to="/service/email"
+                    onClick={() =>
+                      trackEvent("navbar_mobile_service", {
+                        service: "Email Marketing",
+                      })
+                    }
+                  >
+                    Email Marketing
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to="/service/brand"
+                    onClick={() =>
+                      trackEvent("navbar_mobile_service", {
+                        service: "Brand Promotion",
+                      })
+                    }
+                  >
+                    Brand Prommotion
+                  </Link>
+                </li>
               </ul>
             </details>
 
             <li>
-              <Link to="/industries" onClick={() => setOpen(false)}>
+              <Link
+                to="/industries"
+                onClick={() => {
+                  setOpen(false);
+                  trackEvent("navbar_mobile_nav", { page: "Industries" });
+                }}
+              >
                 Industries
               </Link>
             </li>
+
             <li>
-              <Link to="/package" onClick={() => setOpen(false)}>
+              <Link
+                to="/package"
+                onClick={() => {
+                  setOpen(false);
+                  trackEvent("navbar_mobile_nav", { page: "Pricing" });
+                }}
+              >
                 Pricing
               </Link>
             </li>
+
             <li>
-              <Link to="/contact" onClick={() => setOpen(false)}>
+              <Link
+                to="/contact"
+                onClick={() => {
+                  setOpen(false);
+                  trackEvent("navbar_mobile_nav", { page: "Contact" });
+                }}
+              >
                 Contact
               </Link>
             </li>
           </ul>
 
           <div className="flex flex-col gap-4 pt-3 items-center">
-            <h3 className="font-bold text-white">+91-8512001218</h3>
+            <h3
+              className="font-bold text-white"
+              onClick={() => trackEvent("navbar_mobile_phone_click")}
+            >
+              +91-8512001218
+            </h3>
+
             <Link
               to="/contact"
               className="bg-orange-400 text-black px-4 py-2 rounded-xl font-semibold hover:bg-orange-500 transition inline-block text-center"
-              onClick={() => setOpen(false)} // optional: close menu on click
+              onClick={() => {
+                setOpen(false);
+                trackEvent("navbar_mobile_cta_click", { button: "Free Quote" });
+              }}
             >
               Free Quote
             </Link>

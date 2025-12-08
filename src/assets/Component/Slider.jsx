@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
+// ⭐ Firebase Analytics Event Tracker
+import trackEvent from "../../trackEvent";
+
 const slides = [
   {
     title: "Digital Marketing & SEO",
@@ -23,6 +26,15 @@ const Slider = () => {
   const [current, setCurrent] = useState(0);
   const sliderRef = useRef(null);
 
+  // ⭐ Auto Slide Change Event Tracking
+  useEffect(() => {
+    trackEvent("slide_view", {
+      slide_index: current,
+      slide_title: slides[current]?.title,
+    });
+  }, [current]);
+
+  // Auto change slide
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => prev + 1);
@@ -34,21 +46,16 @@ const Slider = () => {
   useEffect(() => {
     if (!sliderRef.current) return;
 
-    // When current reaches length (clone slide), jump instantly to 0 without transition
     if (current === slides.length) {
       sliderRef.current.style.transition = "none";
       sliderRef.current.style.transform = `translateX(0vw)`;
 
-      // Force reflow to apply immediate jump
       sliderRef.current.offsetHeight;
 
-      // Re-enable transition
       sliderRef.current.style.transition = "transform 0.7s ease-in-out";
 
-      // Reset current to 0 immediately without animation
       setCurrent(0);
     } else {
-      // Normal sliding with transition
       sliderRef.current.style.transform = `translateX(-${current * 100}vw)`;
     }
   }, [current]);
@@ -70,13 +77,22 @@ const Slider = () => {
                   {slide.title}
                 </h1>
                 <p className="mb-6 text-gray-300">{slide.text}</p>
+
+                {/* ⭐ TRACK event: Book Meeting Click */}
                 <Link
                   to="/contact"
+                  onClick={() =>
+                    trackEvent("slider_book_meeting_click", {
+                      slide_title: slide.title,
+                      slide_index: index,
+                    })
+                  }
                   className="bg-orange-400 text-black px-5 py-2 rounded-xl font-semibold hover:bg-orange-500 transition inline-block"
                 >
                   Book Meeting
                 </Link>
               </div>
+
               <div>
                 <img
                   src={slide.img}
@@ -88,6 +104,7 @@ const Slider = () => {
           </div>
         ))}
 
+        {/* Clone 1st Slide */}
         <div className="w-screen flex-shrink-0">
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 px-6 items-center">
             <div>
@@ -95,13 +112,23 @@ const Slider = () => {
                 {slides[0].title}
               </h1>
               <p className="mb-6 text-gray-300">{slides[0].text}</p>
+
+              {/* ⭐ Click event for clone slide */}
               <Link
                 to="/contact"
+                onClick={() =>
+                  trackEvent("slider_book_meeting_click", {
+                    slide_title: slides[0].title,
+                    slide_index: 0,
+                    clone_slide: true,
+                  })
+                }
                 className="bg-orange-400 text-black px-5 py-2 rounded-xl font-semibold hover:bg-orange-500 transition cursor-pointer inline-block"
               >
                 Book Meeting
               </Link>
             </div>
+
             <div>
               <img
                 src={slides[0].img}

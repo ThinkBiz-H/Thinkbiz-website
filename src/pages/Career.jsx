@@ -1,16 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../firebase";
+import { db, auth } from "../firebase";
 import { ref, get, child } from "firebase/database";
+import { onAuthStateChanged } from "firebase/auth";
 
 import ApplyFrom from "../assets/Component/ApplyFrom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import WhatsAppButton from "../assets/Component/WhatsAppButton";
 
+import trackEvent from "../trackEvent"; // ← yaha import
+
 const Career = () => {
   const [jobs, setJobs] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedJob, setSelectedJob] = useState(null);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -35,8 +46,30 @@ const Career = () => {
     fetchJobs();
   }, []);
 
+  const handleApplyClick = (jobTitle) => {
+    if (!user) {
+      alert("Please login to apply.");
+      return;
+    }
+
+    // Analytics event track karenge
+    trackEvent("apply_click", {
+      jobTitle,
+      userEmail: user.email,
+    });
+
+    setSelectedJob(jobTitle);
+    setShowModal(true);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 text-black py-20 px-6 max-w-7xl mx-auto">
+      {!user && (
+        <p className="mb-10 text-center text-red-600 font-semibold">
+          Please log in to apply for jobs.
+        </p>
+      )}
+
       {/* ===== HEADER ===== */}
       <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
         <div>
@@ -86,25 +119,13 @@ const Career = () => {
               experience,
               salary,
               deadline,
-              jobType, // ← new field
+              jobType,
             }) => (
               <li
                 key={id}
                 className="p-8 rounded-3xl bg-white border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="grid md:grid-cols-3 gap-10">
-                  {/* IMAGE */}
-                  {/* <div className="rounded-xl overflow-hidden shadow-md">
-                    <img
-                      src={
-                        image || "https://source.unsplash.com/600x400?office"
-                      }
-                      alt={title}
-                      className="w-full h-56 object-cover"
-                    />
-                  </div> */}
-
-                  {/* CONTENT */}
                   <div className="md:col-span-2 flex flex-col justify-between">
                     <div>
                       <h2 className="text-3xl font-bold mb-4 text-gray-900">
@@ -130,17 +151,13 @@ const Career = () => {
                         </p>
                         <p>
                           <span className="font-semibold">Job Type:</span>{" "}
-                          {jobType || "Full-Time / Part-Time"} {/* NEW */}
+                          {jobType || "Full-Time / Part-Time"}
                         </p>
                       </div>
                     </div>
 
-                    {/* APPLY BUTTON */}
                     <button
-                      onClick={() => {
-                        setSelectedJob(title);
-                        setShowModal(true);
-                      }}
+                      onClick={() => handleApplyClick(title)}
                       className="self-start px-10 py-4 text-lg font-medium rounded-full bg-[#ff7515] text-white hover:bg-black shadow-md transition-all"
                     >
                       Apply Now →

@@ -13,13 +13,19 @@ import Policies from "./pages/Policies.jsx";
 import Admin from "./pages/Admin.jsx";
 import Footer from "./assets/Component/Footer.jsx";
 
-import ScrollToTop from "./assets/Component/ScrollToTop"; // path adjust karo apne hisaab se
+import ScrollToTop from "./assets/Component/ScrollToTop";
+import TrackAnalytics from "./TrackAnalytics";
 
 const App = () => {
   return (
     <Router>
       <ScrollToTop />
+
+      {/* Google Analytics Page View Tracker */}
+      <TrackAnalytics />
+
       <Navbar />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -31,6 +37,7 @@ const App = () => {
         <Route path="/policies" element={<Policies />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
+
       <Footer />
     </Router>
   );

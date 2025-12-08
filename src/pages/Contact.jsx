@@ -17,6 +17,9 @@ import "react-toastify/dist/ReactToastify.css";
 import Newsletter from "../assets/Component/NewsLetterbox";
 import WhatsAppButton from "../assets/Component/WhatsAppButton";
 
+// Simple event tracker example
+import trackEvent from "../trackEvent";
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -61,12 +64,15 @@ const Contact = () => {
           toast.success("Message sent successfully!", {
             position: "top-right",
             autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
           });
+
+          // Track event here
+          trackEvent("contact_form_submit", {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+          });
+
           setFormData({
             name: "",
             email: "",

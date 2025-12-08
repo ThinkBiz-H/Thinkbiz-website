@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProjectCounter from "../assets/Component/ProjectCounter";
 import { Link } from "react-router-dom";
 import { FaUsers, FaAward, FaRocket, FaHeadset } from "react-icons/fa";
 import Newsletter from "../assets/Component/NewsLetterbox";
 import WhatsAppButton from "../assets/Component/WhatsAppButton";
+import trackEvent from "../trackEvent";
 
 const About = () => {
   const aboutStats = [
@@ -12,6 +13,11 @@ const About = () => {
     { value: 5, title: "Years Experience" },
     { value: 10, title: "Countries Served" },
   ];
+
+  // Track page view on component mount
+  useEffect(() => {
+    trackEvent("Page Viewed: About");
+  }, []);
 
   return (
     <div className="font-sans text-gray-800">
@@ -40,10 +46,6 @@ const About = () => {
               SEO, or executing ROI-focused digital marketing—ThinkBiz is
               committed to delivering excellence at every step.
             </p>
-
-            {/* <button className="mt-6 bg-white text-black px-8 py-3 rounded-xl font-semibold hover:bg-gray-200 transition">
-              Learn More
-            </button> */}
           </div>
 
           {/* Right */}
@@ -112,6 +114,7 @@ const About = () => {
           </div>
         </div>
       </section>
+
       {/* ================= OUR TEAM (ULTRA MODERN) ================= */}
       <section className="py-24 px-6 bg-gradient-to-br from-[#fff7f0] via-white to-[#f7f1ff]">
         <div className="max-w-7xl mx-auto text-center mb-20">
@@ -121,7 +124,6 @@ const About = () => {
           <p className="text-gray-600 mt-4 text-xl">
             Creative. Passionate. Driven.
           </p>
-
           <div className="w-32 h-1 bg-gradient-to-r from-[#ff7515] to-[#b14bff] mx-auto mt-5 rounded-full"></div>
         </div>
 
@@ -152,8 +154,8 @@ const About = () => {
             <div
               key={i}
               className="group relative rounded-3xl bg-white/30 backdrop-blur-xl p-6 
-        shadow-[0_10px_30px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]
-        transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-white/20"
+                shadow-[0_10px_30px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]
+                transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-white/20"
             >
               {/* Glow Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#ff751540] via-[#b14bff30] to-[#ff751520] opacity-0 group-hover:opacity-100 blur-3xl transition-all duration-700"></div>
@@ -161,6 +163,7 @@ const About = () => {
               <img
                 src={member.img}
                 className="w-full h-56 object-cover rounded-2xl group-hover:scale-110 transition-all duration-500"
+                alt={member.name}
               />
 
               <div className="relative z-10 mt-5 text-center">
@@ -178,12 +181,13 @@ const About = () => {
         {/* GROUP PHOTO */}
         <div
           className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-xl relative 
-  bg-white/30 backdrop-blur-xl p-6 border border-white/20 
-  hover:shadow-[0_25px_80px_rgba(0,0,0,0.2)] transition-all duration-500 hover:-translate-y-3"
+            bg-white/30 backdrop-blur-xl p-6 border border-white/20 
+            hover:shadow-[0_25px_80px_rgba(0,0,0,0.2)] transition-all duration-500 hover:-translate-y-3"
         >
           <img
             src="/Group-image.jpeg"
             className="w-full h-[420px] object-cover rounded-2xl hover:scale-105 transition-all duration-700"
+            alt="Our Amazing Team"
           />
 
           <div className="text-center mt-6">
@@ -245,11 +249,15 @@ const About = () => {
         </p>
 
         <Link to="/contact">
-          <button className="bg-white text-black font-semibold px-10 py-3 rounded-full shadow-md hover:bg-gray-200 transition">
+          <button
+            onClick={() => trackEvent("Clicked Contact Us Button - About Page")}
+            className="bg-white text-black font-semibold px-10 py-3 rounded-full shadow-md hover:bg-gray-200 transition"
+          >
             Contact Us
           </button>
         </Link>
       </section>
+
       <WhatsAppButton />
       <Newsletter />
     </div>
