@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { auth, db } from "../firebase";
+import { auth, db } from "../firebase"; // Firebase config & exports
 import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-
 import { ref as dbRef, push, get, child, remove } from "firebase/database";
 
-import AdminBlogForm from "../assets/Component/AdminBlogForm.jsx"; // sahi path se import karo
+import AdminBlogForm from "../assets/Component/AdminBlogForm.jsx"; // Confirm exact path
 
 const Admin = () => {
+  // User login state
   const [user, setUser] = useState(null);
   const [loginData, setLoginData] = useState({ email: "", password: "" });
 
-  // Job related states
+  // Jobs data and form state
   const [jobs, setJobs] = useState([]);
   const [jobForm, setJobForm] = useState({
     title: "",
@@ -26,16 +26,18 @@ const Admin = () => {
     jobType: "",
   });
 
-  // Toggle states for showing job form or blog form
-  const [showJobForm, setShowJobForm] = useState(true);
-  const [showBlogForm, setShowBlogForm] = useState(false);
+  // Active tab: "job" or "blog"
+  const [activeTab, setActiveTab] = useState("job");
 
-  // Listen for login state changes
+  // Firebase auth listener
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      if (currentUser) fetchJobs();
-      else setJobs([]);
+      if (currentUser) {
+        fetchJobs();
+      } else {
+        setJobs([]);
+      }
     });
     return () => unsubscribe();
   }, []);
@@ -59,11 +61,10 @@ const Admin = () => {
     signOut(auth);
   };
 
-  // Fetch jobs from Firebase
+  // Fetch jobs from Firebase Realtime Database
   const fetchJobs = async () => {
-    const rootRef = dbRef(db);
     try {
-      const snapshot = await get(child(rootRef, "jobs"));
+      const snapshot = await get(child(dbRef(db), "jobs"));
       if (snapshot.exists()) {
         const data = snapshot.val();
         const jobsArray = Object.entries(data).map(([key, value]) => ({
@@ -79,10 +80,9 @@ const Admin = () => {
     }
   };
 
-  // Add new job
+  // Submit new job
   const handleJobSubmit = async (e) => {
     e.preventDefault();
-
     const {
       title,
       description,
@@ -102,13 +102,13 @@ const Admin = () => {
       !deadline ||
       !jobType
     ) {
-      alert("Please fill all fields correctly");
+      alert("Please fill all fields.");
       return;
     }
 
     try {
       await push(dbRef(db, "jobs"), jobForm);
-      alert("Job added successfully");
+      alert("Job added successfully!");
       setJobForm({
         title: "",
         description: "",
@@ -124,18 +124,18 @@ const Admin = () => {
     }
   };
 
-  // Delete job
+  // Delete job by id
   const deleteJob = async (jobId) => {
     try {
       await remove(dbRef(db, "jobs/" + jobId));
-      alert("Job deleted successfully");
+      alert("Job deleted successfully!");
       fetchJobs();
     } catch (error) {
       alert("Failed to delete job: " + error.message);
     }
   };
 
-  // LOGIN UI
+  // If user not logged in, show login form
   if (!user) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white p-6">
@@ -177,9 +177,10 @@ const Admin = () => {
     );
   }
 
-  // ADMIN DASHBOARD
+  // If logged in, show admin dashboard
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6 max-w-4xl mx-auto">
+      {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-4xl font-bold text-orange-500">Admin Dashboard</h1>
         <button
@@ -190,44 +191,34 @@ const Admin = () => {
         </button>
       </div>
 
-      {/* Toggle Buttons */}
+      {/* Tabs */}
       <div className="flex gap-4 mb-6">
         <button
-          onClick={() => {
-            setShowJobForm(true);
-            setShowBlogForm(false);
-          }}
+          onClick={() => setActiveTab("job")}
           className={`px-6 py-3 rounded font-semibold ${
-            showJobForm ? "bg-orange-500" : "bg-gray-700"
+            activeTab === "job" ? "bg-orange-500" : "bg-gray-700"
           }`}
         >
           Job Upload
         </button>
-
         <button
-          onClick={() => {
-            setShowJobForm(false);
-            setShowBlogForm(true);
-          }}
+          onClick={() => setActiveTab("blog")}
           className={`px-6 py-3 rounded font-semibold ${
-            showBlogForm ? "bg-orange-500" : "bg-gray-700"
+            activeTab === "blog" ? "bg-orange-500" : "bg-gray-700"
           }`}
         >
           Blog Upload
         </button>
       </div>
 
-      {/* Conditional Rendering */}
-
-      {showJobForm && (
-        <div>
-          {/* ADD JOB FORM */}
+      {/* Job Upload Tab */}
+      {activeTab === "job" && (
+        <>
           <form
             onSubmit={handleJobSubmit}
             className="space-y-4 bg-gray-800 p-6 rounded-lg mb-8"
           >
             <h2 className="text-2xl font-semibold mb-4">Add New Job</h2>
-
             <input
               type="text"
               placeholder="Job Title"
@@ -237,7 +228,6 @@ const Admin = () => {
               }
               className="w-full p-3 rounded bg-gray-700 text-white"
             />
-
             <textarea
               placeholder="Job Description"
               value={jobForm.description}
@@ -246,8 +236,7 @@ const Admin = () => {
               }
               className="w-full p-3 rounded bg-gray-700 text-white resize-none"
               rows={4}
-            ></textarea>
-
+            />
             <input
               type="text"
               placeholder="Location"
@@ -257,7 +246,6 @@ const Admin = () => {
               }
               className="w-full p-3 rounded bg-gray-700 text-white"
             />
-
             <input
               type="text"
               placeholder="Experience"
@@ -267,7 +255,6 @@ const Admin = () => {
               }
               className="w-full p-3 rounded bg-gray-700 text-white"
             />
-
             <input
               type="text"
               placeholder="Salary"
@@ -277,7 +264,6 @@ const Admin = () => {
               }
               className="w-full p-3 rounded bg-gray-700 text-white"
             />
-
             <input
               type="date"
               value={jobForm.deadline}
@@ -286,7 +272,6 @@ const Admin = () => {
               }
               className="w-full p-3 rounded bg-gray-700 text-white"
             />
-
             <select
               value={jobForm.jobType}
               onChange={(e) =>
@@ -299,7 +284,6 @@ const Admin = () => {
               <option value="Part-Time">Part-Time</option>
               <option value="Internship">Internship</option>
             </select>
-
             <button
               type="submit"
               className="bg-orange-500 px-6 py-3 rounded font-semibold hover:bg-orange-600 transition"
@@ -308,59 +292,64 @@ const Admin = () => {
             </button>
           </form>
 
-          {/* JOB LIST */}
+          {/* Job List */}
           <div>
             <h2 className="text-2xl font-semibold mb-4">
               Current Job Listings
             </h2>
-
-            {jobs.length === 0 && <p>No jobs found.</p>}
-
-            <ul className="space-y-4">
-              {jobs.map(
-                ({
-                  id,
-                  title,
-                  description,
-                  location,
-                  experience,
-                  salary,
-                  deadline,
-                  jobType,
-                }) => (
-                  <li key={id} className="bg-gray-800 p-4 rounded">
-                    <h3 className="text-xl font-bold text-orange-400">
-                      {title}
-                    </h3>
-                    <p>{description}</p>
-                    <p className="italic text-gray-400">Location: {location}</p>
-                    <p className="italic text-gray-400">
-                      Experience: {experience}
-                    </p>
-                    <p className="italic text-gray-400">Salary: {salary}</p>
-                    <p className="italic text-gray-400">Job Type: {jobType}</p>
-                    <p className="italic text-gray-400">
-                      Deadline:{" "}
-                      {deadline
-                        ? new Date(deadline).toLocaleDateString()
-                        : "N/A"}
-                    </p>
-
-                    <button
-                      onClick={() => deleteJob(id)}
-                      className="mt-3 bg-red-600 px-4 py-2 rounded hover:bg-red-700 transition"
-                    >
-                      Delete
-                    </button>
-                  </li>
-                )
-              )}
-            </ul>
+            {jobs.length === 0 ? (
+              <p>No jobs found.</p>
+            ) : (
+              <ul className="space-y-4">
+                {jobs.map(
+                  ({
+                    id,
+                    title,
+                    description,
+                    location,
+                    experience,
+                    salary,
+                    deadline,
+                    jobType,
+                  }) => (
+                    <li key={id} className="bg-gray-800 p-4 rounded">
+                      <h3 className="text-xl font-bold text-orange-400">
+                        {title}
+                      </h3>
+                      <p>{description}</p>
+                      <p className="italic text-gray-400">
+                        Location: {location}
+                      </p>
+                      <p className="italic text-gray-400">
+                        Experience: {experience}
+                      </p>
+                      <p className="italic text-gray-400">Salary: {salary}</p>
+                      <p className="italic text-gray-400">
+                        Job Type: {jobType}
+                      </p>
+                      <p className="italic text-gray-400">
+                        Deadline:{" "}
+                        {deadline
+                          ? new Date(deadline).toLocaleDateString()
+                          : "N/A"}
+                      </p>
+                      <button
+                        onClick={() => deleteJob(id)}
+                        className="mt-3 bg-red-600 px-4 py-2 rounded hover:bg-red-700 transition"
+                      >
+                        Delete
+                      </button>
+                    </li>
+                  )
+                )}
+              </ul>
+            )}
           </div>
-        </div>
+        </>
       )}
 
-      {showBlogForm && <AdminBlogForm />}
+      {/* Blog Upload Tab */}
+      {activeTab === "blog" && <AdminBlogForm />}
     </div>
   );
 };
