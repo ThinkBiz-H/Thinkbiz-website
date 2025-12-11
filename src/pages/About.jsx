@@ -133,12 +133,12 @@ const About = () => {
             {
               name: "BHARAT CHAUDHARY",
               role: "Director",
-              img: "https://www.thinkbizhightech.com/testimonials/WhatsApp%20Image%202024-12-13%20at%2012.26.17.jpeg",
+              img: "/bharat-sir.jpeg",
             },
             {
               name: "MILAN CHHALERIYA",
               role: "Director",
-              img: "https://www.thinkbizhightech.com/testimonials/7457962b-cde2-4c7c-974c-3a9c1a054a66.jpeg",
+              img: "/milan-sir.jpeg",
             },
             {
               name: "TARUN CHHALERIYA",
