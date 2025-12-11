@@ -47,15 +47,11 @@ const Career = () => {
   }, []);
 
   const handleApplyClick = (jobTitle) => {
-    if (!user) {
-      alert("Please login to apply.");
-      return;
-    }
+    // Login check hata diya, sidhe form khulega
 
-    // Analytics event track karenge
     trackEvent("apply_click", {
       jobTitle,
-      userEmail: user.email,
+      userEmail: user?.email || "guest", // agar user nahi to guest bheja jayega
     });
 
     setSelectedJob(jobTitle);
@@ -64,11 +60,7 @@ const Career = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 text-black py-20 px-6 max-w-7xl mx-auto">
-      {!user && (
-        <p className="mb-10 text-center text-red-600 font-semibold">
-          Please log in to apply for jobs.
-        </p>
-      )}
+      {/* Login alert hata diya */}
 
       {/* ===== HEADER ===== */}
       <div className="grid md:grid-cols-2 gap-16 items-center mb-20">

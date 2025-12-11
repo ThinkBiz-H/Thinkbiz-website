@@ -309,33 +309,48 @@ const Industries = () => {
 
       {/* MODAL */}
       {selected && selectedIndustry && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 z-50">
-          <div className="bg-white w-full max-w-4xl h-auto p-8 rounded-2xl shadow-2xl relative overflow-y-visible max-h-none text-gray-900">
-            {/* CLOSE BUTTON */}
+        <div
+          className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 z-50 overflow-auto"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
+          <div className="bg-white w-full max-w-4xl p-6 md:p-8 rounded-2xl shadow-2xl relative text-gray-900 min-h-[80vh] md:min-h-auto max-h-[90vh] md:max-h-none overflow-y-auto">
+            {/* CLOSE BUTTON - now properly inside modal */}
             <button
               onClick={handleCloseModal}
-              className="absolute top-3 right-3 text-gray-500 hover:text-black text-3xl"
+              className="
+        absolute top-4 right-4 
+        text-gray-500 hover:text-black 
+        bg-white rounded-full 
+        w-10 h-10 
+        flex items-center justify-center 
+        text-3xl 
+        shadow-md
+        transition
+        hover:scale-110
+        active:scale-95
+        focus:outline-none
+        focus:ring-2
+        focus:ring-orange-500
+      "
+              aria-label="Close modal"
             >
               ×
             </button>
-
-            {/* FLEX CONTAINER: LEFT IMAGE+BTN, RIGHT TEXTS */}
-            <div className="flex flex-col md:flex-row gap-10 items-start">
+            {/* FLEX CONTAINER */}
+            <div className="flex flex-col md:flex-row gap-8 md:gap-10 mt-10">
               {/* LEFT SIDE */}
               <div className="w-full md:w-1/2 flex flex-col items-center">
                 <img
                   src={selectedIndustry.image}
                   alt={selectedIndustry.title}
-                  className="rounded-xl shadow-lg w-full mb-6 object-cover"
+                  className="rounded-xl shadow-lg w-full object-cover mb-6 max-h-[250px] md:max-h-none"
                 />
 
-                {/* FEATURES Heading */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 w-full">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3 w-full text-center md:text-left">
                   FEATURES
                 </h3>
 
-                {/* Bullet Points */}
-                <ul className="text-left text-gray-800 mb-6 list-disc list-inside space-y-0 max-w-md w-full">
+                <ul className="text-left text-gray-800 mb-6 list-disc list-inside space-y-2 w-full max-w-md mx-auto md:mx-0">
                   {selectedIndustry.points.map((point, index) => (
                     <li key={index} className="text-lg font-medium">
                       {point}
@@ -343,9 +358,7 @@ const Industries = () => {
                   ))}
                 </ul>
 
-                {/* BUTTONS */}
-                <div className="flex gap-4 mt-0">
-                  {/* Close Button */}
+                <div className="flex gap-4 justify-center md:justify-start">
                   <button
                     onClick={handleCloseModal}
                     className="bg-[#ff7515] text-white font-semibold px-8 py-3 rounded-full hover:bg-black transition"
@@ -353,7 +366,6 @@ const Industries = () => {
                     Industries
                   </button>
 
-                  {/* FREE CONSULTATION BUTTON */}
                   <a
                     href="/contact"
                     className="bg-black text-white font-semibold px-8 py-3 rounded-full hover:bg-[#ff7515] transition"
@@ -365,19 +377,15 @@ const Industries = () => {
 
               {/* RIGHT SIDE */}
               <div className="w-full md:w-1/2 text-gray-700">
-                <p className="text-2xl font-semibold text-[#ff7515] tracking-wide mb-2">
+                <p className="text-2xl font-semibold text-[#ff7515] tracking-wide mb-2 text-center md:text-left">
                   INDUSTRY: {selectedIndustry.title.toUpperCase()}
                 </p>
 
-                <h2 className="text-4xl font-bold mb-6 leading-tight">
+                <h2 className="text-4xl font-bold mb-6 leading-tight text-center md:text-left">
                   {selectedIndustry.heading}
                 </h2>
-                <p
-                  className="
-                    text-lg leading-relaxed whitespace-pre-line
-                    max-h-90 overflow-hidden
-                  "
-                >
+
+                <p className="text-lg leading-relaxed whitespace-pre-line text-center md:text-left">
                   {selectedIndustry.text}
                 </p>
               </div>

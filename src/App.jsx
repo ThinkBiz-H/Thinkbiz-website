@@ -1,4 +1,3 @@
-// src/App.js
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -12,6 +11,8 @@ import Package from "./pages/Package.jsx";
 import Career from "./pages/Career.jsx";
 import Policies from "./pages/Policies.jsx";
 import Admin from "./pages/Admin.jsx";
+import Blog from "./pages/Blog.jsx";
+import BlogDetail from "./pages/BlogDetail.jsx";
 import Footer from "./assets/Component/Footer.jsx";
 
 import ScrollToTop from "./assets/Component/ScrollToTop";
@@ -37,6 +38,10 @@ const App = () => {
         <Route path="/career" element={<Career />} />
         <Route path="/policies" element={<Policies />} />
         <Route path="/admin" element={<Admin />} />
+
+        {/* Blog routes */}
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogDetail />} />
       </Routes>
 
       <Footer />

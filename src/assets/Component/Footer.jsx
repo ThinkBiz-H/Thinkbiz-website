@@ -97,6 +97,13 @@ const Footer = () => {
               </li>{" "}
               <li>
                 {" "}
+                <Link to="/blog" className="hover:text-orange-500">
+                  {" "}
+                  Blog{" "}
+                </Link>{" "}
+              </li>{" "}
+              <li>
+                {" "}
                 <Link to="/Package" className="hover:text-orange-500">
                   {" "}
                   Pricing{" "}

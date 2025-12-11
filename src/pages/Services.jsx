@@ -272,11 +272,23 @@ const Services = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-900 flex justify-center items-center p-6">
-        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-16 bg-gray-800 rounded-3xl shadow-2xl border border-gray-700 p-10">
-          {/* Image Section */}
-          <div className="flex flex-col h-full items-center">
-            {/* IMAGE */}
+      <div className="min-h-screen bg-gray-900 flex justify-center items-center p-4 md:p-6">
+        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 bg-gray-800 rounded-3xl shadow-2xl border border-gray-700 p-6 md:p-10">
+          {/* ================= MOBILE IMAGE (#1) ================= */}
+          <div className="flex flex-col h-full items-center order-1 md:hidden">
+            <div className="overflow-hidden rounded-3xl shadow-lg border border-gray-700 w-full">
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-64 object-cover transition-transform duration-700 hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          {/* ================= LEFT SIDE (DESKTOP) ================= */}
+          <div className="hidden md:flex flex-col h-full items-center">
+            {/* IMAGE — Desktop LEFT */}
             <div className="overflow-hidden rounded-3xl shadow-lg border border-gray-700 w-full">
               <img
                 src={service.image}
@@ -285,10 +297,13 @@ const Services = () => {
                 loading="lazy"
               />
             </div>
-            <div className="w-full rounded-xl p-4 my-6 text-gray-200 ">
-              <h3 className="text-4xl font-semibold mb-2 text-[#ff7515] text-center">
+
+            {/* TECHNOLOGIES — Desktop */}
+            <div className="w-full rounded-xl p-4 mt-8 text-gray-200">
+              <h3 className="text-4xl font-semibold mb-4 text-[#ff7515] text-center">
                 Technologies We Use
               </h3>
+
               <ul className="list-disc list-inside space-y-1 text-xl">
                 {service.technologies?.map((tech, index) => (
                   <li
@@ -301,35 +316,33 @@ const Services = () => {
               </ul>
             </div>
 
-            {/* BUTTON – BILKUL NICHE / BOTTOM */}
+            {/* Desktop Button */}
             <Link
               to="/"
-              className="mt-auto px-6 py-3 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition"
-              onClick={() =>
-                trackEvent(
-                  "Services",
-                  "BackToHome_Click",
-                  `Back to Home from ${service.title}`
-                )
-              }
+              className="mt-6 px-6 py-3 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition w-auto"
             >
               Back to Home
             </Link>
           </div>
 
-          {/* Content Section */}
-          <div className="text-white flex flex-col justify-center">
-            <h1 className="text-4xl font-extrabold mb-8 text-orange-500">
+          {/* ================= RIGHT SIDE = CONTENT (DESKTOP) ================= */}
+          <div className="text-white flex flex-col order-2 md:order-none">
+            {/* TITLE (#2 Mobile) */}
+            <h1 className="text-3xl md:text-4xl font-extrabold mb-6 md:mb-8 text-orange-500">
               {service.title}
             </h1>
-            <p className="text-lg leading-relaxed mb-10 text-gray-300">
+
+            {/* DESCRIPTION (#3 Mobile) */}
+            <p className="text-base md:text-lg leading-relaxed mb-8 md:mb-10 text-gray-300">
               {service.description}
             </p>
 
-            <h3 className="text-3xl font-semibold mb-6 text-[#ff7515]">
+            {/* FEATURES (#4 Mobile) */}
+            <h3 className="text-2xl md:text-3xl font-semibold mb-4 md:mb-6 text-[#ff7515]">
               Key Features
             </h3>
-            <ul className="list-disc list-inside space-y-3 text-gray-300 text-lg">
+
+            <ul className="list-disc list-inside space-y-2 md:space-y-3 text-gray-300 text-base md:text-lg">
               {service.features.map((feature, idx) => (
                 <li
                   key={idx}
@@ -339,9 +352,36 @@ const Services = () => {
                 </li>
               ))}
             </ul>
+
+            {/* MOBILE TECHNOLOGIES (#5 Mobile) */}
+            <div className="w-full rounded-xl p-4 mt-6 text-gray-200 block md:hidden">
+              <h3 className="text-3xl font-semibold mb-4 text-[#ff7515] text-center">
+                Technologies We Use
+              </h3>
+
+              <ul className="list-disc list-inside space-y-1 text-lg">
+                {service.technologies?.map((tech, index) => (
+                  <li
+                    className="hover:text-orange-500 transition-colors cursor-default"
+                    key={index}
+                  >
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* MOBILE BUTTON (#6 Mobile) */}
+            <Link
+              to="/"
+              className="px-6 py-3 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition w-full md:hidden text-center"
+            >
+              Back to Home
+            </Link>
           </div>
         </div>
       </div>
+
       <WhatsAppButton />
       <Newsletter />
     </>
