@@ -2,174 +2,122 @@ import React from "react";
 import WhatsAppButton from "../assets/Component/WhatsAppButton";
 
 const Policies = () => {
+  const today = new Date();
+  const formattedDate = today.toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 py-16 px-6 text-white">
-      <div className="max-w-5xl mx-auto backdrop-blur-xl bg-white/10 p-10 rounded-3xl shadow-2xl border border-white/20">
-        <h1 className="text-4xl font-bold text-orange-500 mb-2 text-center">
-          Privacy Policy
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 py-20 px-8 sm:px-16 text-white flex flex-col">
+      <div className="max-w-4xl mx-auto backdrop-blur-xl bg-white/5 p-12 rounded-3xl shadow-2xl border border-white/25">
+        <h1 className="text-5xl font-extrabold text-orange-500 mb-8 text-center tracking-wide drop-shadow-lg">
+          🔐 Privacy Policy
         </h1>
 
-        {/* <p className="text-center text-sm text-gray-300 mb-6">
-          <strong>Effective Date:</strong> 9th June 2025
-        </p> */}
-
-        <p className="text-white mb-8 leading-relaxed text-center">
-          Welcome to <strong>Thinkbiz High Tech </strong>! This Privacy Policy
-          explains how Thinkbiz High Tech (“we”, “our”, or “us”) collects, uses,
-          shares, and protects information about you when you use our website
-          <strong>www.thinkbizhightech.com</strong>.
-          <br />
-          <br />
-          By using this website, you agree to the terms of this Privacy Policy.
+        <p className="text-center text-gray-300 text-sm italic mb-10">
+          <strong>Last updated:</strong> {formattedDate}
         </p>
 
-        {/* Information We Collect */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-semibold mb-4">
-            1. Information We Collect
-          </h2>
+        <p className="text-gray-100 mb-10 leading-relaxed text-lg text-center max-w-3xl mx-auto">
+          <strong>ThinkBiz HighTech Private Limited</strong> (“ThinkBiz”, “we”,
+          “our”, “us”) operates the website{" "}
+          <strong>www.thinkbizhightech.com</strong>. We are committed to
+          protecting your privacy and ensuring the security of your personal
+          information.
+        </p>
 
-          <h3 className="font-semibold mb-2">1.1 Information You Provide</h3>
-          <ul className="list-disc pl-8 space-y-2 mb-4">
-            <li>
-              <strong>Personal Details:</strong> Name, email, phone number,
-              business name
-            </li>
-            <li>
-              <strong>Business Information:</strong> Category, address, service
-              details, photos
-            </li>
-            <li>
-              <strong>Feedback & Reviews:</strong> Ratings, reviews, comments
-            </li>
-          </ul>
-
-          <h3 className="font-semibold mb-2">
-            1.2 Information We Collect Automatically
-          </h3>
-          <ul className="list-disc pl-8 space-y-2">
-            <li>
-              <strong>Device & Usage Data:</strong> IP address, browser type,
-              operating system, pages visited
-            </li>
-            <li>
-              <strong>Location Data:</strong> Approximate location via IP for
-              showing relevant listings
-            </li>
-          </ul>
-        </section>
-
-        {/* How We Use Information */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-semibold mb-4">
-            2. How We Use Your Information
-          </h2>
-          <ul className="list-disc pl-8 space-y-2">
-            <li>Display accurate business listings and local services</li>
-            <li>Enable search functionality and geo-targeted results</li>
-            <li>Improve user experience and personalize content</li>
-            <li>
-              Send important updates or promotional communications (with
-              consent)
-            </li>
-            <li>Detect fraud or misuse of the platform</li>
-            <li>Provide customer support and respond to queries</li>
-          </ul>
-        </section>
-
-        {/* Sharing */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-semibold mb-4">
-            3. Sharing of Information
-          </h2>
-          <p className="mb-4">We do not sell your personal information.</p>
-          <ul className="list-disc pl-8 space-y-2">
-            <li>Service providers (hosting, analytics, email, payments)</li>
-            <li>Legal authorities when required by law</li>
-            <li>
-              Business listings when you choose to contact a business directly
-            </li>
-          </ul>
-        </section>
-
-        {/* Cookies */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-semibold mb-4">
-            4. Cookies & Tracking Technologies
-          </h2>
-          <ul className="list-disc pl-8 space-y-2">
-            <li>Understand user behavior</li>
-            <li>Improve website speed and performance</li>
-            <li>Save user preferences</li>
-          </ul>
-          <p className="mt-3">
-            You can control or disable cookies through your browser settings.
-          </p>
-        </section>
-
-        {/* Data Security */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-semibold mb-4">5. Data Security</h2>
-          <p>
-            We use appropriate technical and organizational measures to protect
-            your data. However, no internet transmission is 100% secure.
-          </p>
-        </section>
-
-        {/* User Rights */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-semibold mb-4">6. Your Rights</h2>
-          <ul className="list-disc pl-8 space-y-2">
-            <li>Request access to your personal data</li>
-            <li>Request correction or deletion of your data</li>
-            <li>Opt-out of promotional emails</li>
-            <li>Disable cookies or location tracking</li>
-          </ul>
-          <p className="mt-3">
-            Contact us at: <strong>info@thinkbizhightech.com</strong>
-          </p>
-        </section>
-
-        {/* Children */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-semibold mb-4">7. Children’s Privacy</h2>
-          <p>
-            Thinkbiz High Tech is not intended for children under the age of 13.
-            We do not knowingly collect data from children.
-          </p>
-        </section>
-
-        {/* Third Party */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-semibold mb-4">8. Third-Party Links</h2>
-          <p>
-            We may link to third-party websites. We are not responsible for
-            their privacy practices.
-          </p>
-        </section>
-
-        {/* Changes */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-semibold mb-4">
-            9. Changes to This Policy
-          </h2>
-          <p>
-            We may update this policy periodically. Continued use of the website
-            indicates acceptance of the updated policy.
-          </p>
-        </section>
-
-        {/* Contact */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">10. Contact Us</h2>
-          <p className="font-semibold">
-            📧info@thinkbizhightech.com <br />
-            📞 +91-85120 01218
-          </p>
-        </section>
+        {/* Section Component */}
+        {[
+          {
+            title: "1. Information We Collect",
+            content: (
+              <ul className="list-disc pl-8 space-y-2 text-gray-200 text-lg">
+                <li>Name, email address, phone number</li>
+                <li>Business or company details</li>
+                <li>
+                  Payment-related information (processed securely via
+                  third-party gateways)
+                </li>
+                <li>IP address, browser type, device information</li>
+                <li>Information submitted via contact forms or inquiries</li>
+              </ul>
+            ),
+          },
+          {
+            title: "2. How We Use Your Information",
+            content: (
+              <ul className="list-disc pl-8 space-y-2 text-gray-200 text-lg">
+                <li>Provide and improve our services</li>
+                <li>Communicate regarding inquiries, projects, or support</li>
+                <li>Process payments and invoices</li>
+                <li>Send important service-related updates</li>
+                <li>Improve website performance and user experience</li>
+              </ul>
+            ),
+          },
+          {
+            title: "3. Data Security",
+            content: (
+              <p className="text-gray-200 text-lg max-w-3xl">
+                We implement appropriate technical and organizational measures
+                to protect your personal data. Payment transactions are handled
+                by secure third-party payment gateways, and we do not store
+                sensitive card or banking information on our servers.
+              </p>
+            ),
+          },
+          {
+            title: "4. Third-Party Disclosure",
+            content: (
+              <p className="text-gray-200 text-lg max-w-3xl">
+                We do not sell or trade your personal information. Data may be
+                shared only with trusted partners (such as payment processors
+                and hosting providers) strictly for service delivery.
+              </p>
+            ),
+          },
+          {
+            title: "5. Cookies",
+            content: (
+              <p className="text-gray-200 text-lg max-w-3xl">
+                Our website may use cookies to enhance user experience. You can
+                disable cookies through your browser settings.
+              </p>
+            ),
+          },
+          {
+            title: "6. Your Consent",
+            content: (
+              <p className="text-gray-200 text-lg max-w-3xl">
+                By using our website, you consent to our Privacy Policy.
+              </p>
+            ),
+          },
+          {
+            title: "7. Contact Us",
+            content: (
+              <p className="text-gray-200 text-lg max-w-3xl font-semibold">
+                📧 info@thinkbizhightech.com <br />
+                📞 +91-85120 01218
+              </p>
+            ),
+          },
+        ].map(({ title, content }, i) => (
+          <section key={i} className="mb-12 last:mb-0">
+            <h2 className="text-3xl font-semibold mb-4 border-b-2 border-orange-500 inline-block pb-1 tracking-wide">
+              {title}
+            </h2>
+            {content}
+          </section>
+        ))}
       </div>
 
-      <WhatsAppButton />
+      {/* WhatsApp Button Fixed on bottom right */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <WhatsAppButton />
+      </div>
     </div>
   );
 };

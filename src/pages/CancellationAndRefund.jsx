@@ -3,116 +3,73 @@ import WhatsAppButton from "../assets/Component/WhatsAppButton";
 
 const CancellationAndRefund = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 py-16 px-6 text-white">
-      <div className="max-w-5xl mx-auto backdrop-blur-xl bg-white/10 p-10 rounded-3xl shadow-2xl border border-white/20">
-        <h1 className="text-4xl font-bold text-orange-500 mb-2 text-center">
-          Cancellation & Refund Policy
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 py-20 px-8 sm:px-16 text-white flex flex-col">
+      <div className="max-w-4xl mx-auto backdrop-blur-xl bg-white/10 p-12 rounded-3xl shadow-2xl border border-white/25">
+        <h1 className="text-5xl font-extrabold text-orange-500 mb-8 text-center tracking-wide drop-shadow-lg">
+          🔄 Cancellation and Refund Policy
         </h1>
 
-        {/* <p className="text-center text-sm text-gray-300 mb-6">
-          <strong>Effective Date:</strong> 4th July 2025
-        </p> */}
-
-        <p className="text-white mb-8 leading-relaxed text-center">
-          Thank you for choosing <strong>Thinkbhiz High Tech</strong> for your
-          business listing and promotional needs. We strive to ensure a smooth
-          and satisfactory experience for every user and business.
+        <p className="text-center text-gray-300 text-sm italic mb-10 max-w-3xl mx-auto">
+          At ThinkBiz HighTech Private Limited, we value transparency and
+          fairness in all our business dealings.
         </p>
 
-        {/* 1. Subscription Plans */}
         <section className="mb-10">
-          <h2 className="text-2xl font-semibold mb-4">1. Subscription Plans</h2>
-          <p>
-            Thinkbhiz High Tech offers both free and paid subscription plans
-            including
-            <strong> Basic, Standard, and Premium</strong>. Paid plans provide
-            access to premium features and promotional benefits.
-          </p>
-        </section>
-
-        {/* 2. Cancellation Policy */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-semibold mb-4">
-            2. Cancellation Policy
+          <h2 className="text-3xl font-semibold mb-4 border-b-2 border-orange-500 inline-block pb-1 tracking-wide">
+            Cancellation
           </h2>
-
-          <h3 className="font-semibold mb-2">Listing Cancellation</h3>
-          <p className="mb-4">
-            You may request cancellation of your listing or service plan at any
-            time by contacting our support team.
-          </p>
-
-          <h3 className="font-semibold mb-2">Cancellation Window</h3>
-          <p className="mb-4">
-            To be eligible for a refund, cancellation requests must be submitted
-            within <strong>3 days</strong> of the payment date.
-          </p>
-
-          <h3 className="font-semibold mb-2">After 3 Days</h3>
-          <p>
-            No refunds will be issued after 3 calendar days, as processing of
-            listings, promotions, and assets begins immediately.
-          </p>
-        </section>
-
-        {/* 3. Refund Policy */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-semibold mb-4">3. Refund Policy</h2>
-
-          <h3 className="font-semibold mb-2">Full Refund Eligibility</h3>
-          <p className="mb-4">
-            A 100% refund will be issued if cancellation is requested within 3
-            days and no services have been initiated.
-          </p>
-
-          <h3 className="font-semibold mb-2">Partial Refund Eligibility</h3>
-          <p className="mb-4">
-            If services are partially completed, a pro-rated refund may be
-            considered based on work done.
-          </p>
-
-          <h3 className="font-semibold mb-2">Non-Refundable Cases</h3>
-          <ul className="list-disc pl-8 space-y-2">
-            <li>Completed services</li>
-            <li>Third-party integrations (WhatsApp API, GMB setup, etc.)</li>
-            <li>Violation of terms or fraudulent information</li>
+          <ul className="list-disc pl-8 space-y-2 text-gray-200 text-lg max-w-3xl">
+            <li>
+              Service cancellation requests must be submitted in writing via
+              email
+            </li>
+            <li>
+              Once a project has started, cancellation may not be possible
+            </li>
           </ul>
         </section>
 
-        {/* 4. Refund Process */}
         <section className="mb-10">
-          <h2 className="text-2xl font-semibold mb-4">4. Refund Process</h2>
-          <ul className="list-disc pl-8 space-y-2">
-            <li>Approved refunds are processed within 7–10 business days</li>
-            <li>Refunds are credited to the original payment method</li>
-            <li>Email notification will be sent once refund is initiated</li>
+          <h2 className="text-3xl font-semibold mb-4 border-b-2 border-orange-500 inline-block pb-1 tracking-wide">
+            Refund Policy
+          </h2>
+          <ul className="list-disc pl-8 space-y-2 text-gray-200 text-lg max-w-3xl">
+            <li>No refunds will be issued once the service has commenced</li>
+            <li>
+              Advance payments are non-refundable, as they cover project
+              planning, resource allocation, and initial work
+            </li>
+            <li>
+              Refunds, if any, are subject to specific terms mentioned in the
+              signed proposal or agreement
+            </li>
           </ul>
         </section>
 
-        {/* 5. Changes */}
         <section className="mb-10">
-          <h2 className="text-2xl font-semibold mb-4">
-            5. Changes to This Policy
+          <h2 className="text-3xl font-semibold mb-4 border-b-2 border-orange-500 inline-block pb-1 tracking-wide">
+            Exceptions
           </h2>
-          <p>
-            Thinkbhiz High Tech reserves the right to modify this policy at any
-            time. Updates will be reflected on this page with a revised
-            effective date.
+          <p className="text-gray-200 text-lg max-w-3xl">
+            In rare cases of duplicate payment or technical error, refunds may
+            be processed after internal verification within 7–10 business days.
           </p>
         </section>
 
-        {/* 6. Contact */}
         <section>
-          <h2 className="text-2xl font-semibold mb-4">6. Contact Us</h2>
-          <p className="font-semibold">
+          <h2 className="text-3xl font-semibold mb-4 border-b-2 border-orange-500 inline-block pb-1 tracking-wide">
+            Contact for Refund Queries
+          </h2>
+          <p className="text-gray-200 text-lg max-w-3xl font-semibold">
             📧 info@thinkbizhightech.com <br />
-            📞 WhatsApp: +91-85120 01218 <br />
-            🌐www.thinkbizhightech.com
+            📞 +91-85120 01218
           </p>
         </section>
       </div>
 
-      <WhatsAppButton />
+      <div className="fixed bottom-6 right-6 z-50">
+        <WhatsAppButton />
+      </div>
     </div>
   );
 };
