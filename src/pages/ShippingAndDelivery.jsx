@@ -101,7 +101,7 @@ const ShippingAndDelivery = () => {
           <ul className="list-disc pl-8 space-y-2">
             <li>
               Services are delivered via email, WhatsApp, or directly on your
-              DialUp365 business profile
+              Thinkbhiz High Tech business profile
             </li>
             <li>
               You will be notified on your registered email and phone number

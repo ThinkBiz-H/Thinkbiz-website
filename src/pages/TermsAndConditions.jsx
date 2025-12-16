@@ -64,7 +64,7 @@ const TermsAndConditions = () => {
           <h2 className="text-2xl font-semibold mb-4">3. Business Listings</h2>
           <p>
             Businesses are solely responsible for the content they list on
-            DialUp365. We do not guarantee the quality, accuracy, or
+            Thinkbhiz High Tech. We do not guarantee the quality, accuracy, or
             availability of any services. However, we reserve the right to
             moderate, edit, or remove content that violates our policies.
           </p>
