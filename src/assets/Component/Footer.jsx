@@ -225,7 +225,8 @@ const Footer = () => {
               <li>E-Commerce</li> <li>Technology & SaaS</li>{" "}
               <li>Education & Training</li> <li>Healthcare & Wellness</li>{" "}
               <li>Real Estate</li> <li>Finance & Banking</li>{" "}
-              <li>Automobile Industry</li> <li>Hospitality & Restaurants</li>{" "}
+              <li>Automobile Industry</li> <li>Hospitality & Restaurants</li>
+              <li>Interior Design</li>{" "}
             </ul>{" "}
           </div>{" "}
           <div>
