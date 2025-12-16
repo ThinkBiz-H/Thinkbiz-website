@@ -81,6 +81,13 @@ const industriesData = [
     icon: "🎬",
     image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4",
   },
+  {
+    id: 13,
+    title: "InteriorDesign",
+    icon: "🛋️",
+    image:
+      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80",
+  },
 ];
 
 // ======================= DETAILS WITH IMAGE + TEXT OBJECT FORMAT =======================
@@ -263,6 +270,19 @@ const industriesDetails = {
       "Media mobile apps",
       "Content management systems",
       "Digital marketing campaigns",
+    ],
+  },
+  InteriorDesign: {
+    title: "Interior Design",
+    image: industriesData[12].image,
+    heading: "Elevate Spaces with Smart Interior Design Solutions",
+    text: `ThinkBiz Hightech Pvt. Ltd. delivers innovative digital solutions...`,
+    points: [
+      "Interior design portfolio websites",
+      "3D visualisation & design presentation",
+      "Project management systems",
+      "Client collaboration platforms",
+      "Workflow automation & reporting",
     ],
   },
 };
